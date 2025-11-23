@@ -53,22 +53,22 @@ const TweetForm = (props) => {
     );
 };
 
-const DomoList = (props) => {
-    const [domos, setDomos] = useState(props.domos);
+const TweetList = (props) => {
+    const [tweets, setTweets] = useState(props.tweets);
 
     useEffect(() => {
-        const loadDomosFromServer = async () => {
-            const response = await fetch('/getDomos');
+        const loadTweetsFromServer = async () => {
+            const response = await fetch('/getTweets');
             const data = await response.json();
-            setDomos(data.domos);
+            setTweets(data.tweets);
         };
-        loadDomosFromServer();
-    }, [props.reloadDomos]);
+        loadTweetsFromServer();
+    }, [props.reloadTweets]);
 
-    if (domos.length === 0) {
+    if (tweets.length === 0) {
         return (
-            <div className="domoList">
-                <h3 className="emptyDomo">No Domos Yet!</h3>
+            <div className="tweetList">
+                <h3 className="emptyTweet">No Tweets Yet!</h3>
             </div>
         );
     }
