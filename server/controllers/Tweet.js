@@ -1,28 +1,27 @@
 const models = require('../models');
-const Domo = models.Domo;
+const Tweet = models.Tweet;
 
-const makeDomo = async (req, res) => {
+const makeTweet = async (req, res) => {
     if (!req.body.name || !req.body.age || !req.body.level) {
-        return res.status(400).json({ error: 'Name, age, and level are all required!' });
+        return res.status(400).json({ error: 'Title and content are required!' });
     }
 
-    const domoData = {
-        name: req.body.name,
-        age: req.body.age,
-        level: req.body.level,
+    const tweetData = {
+        title: req.body.title,
+        content: req.body.content,
         owner: req.session.account._id,
     };
 
     try {
-        const newDomo = new Domo(domoData);
-        await newDomo.save();
-        return res.status(201).json({ name: newDomo.name, age: newDomo.age, level: newDomo.level });
+        const newTweet = new Tweet(tweetData);
+        await newTweet.save();
+        return res.status(201).json({ title: newTweet.title, content: newTweet.content });
     } catch (err) {
         console.log(err);
         if (err.code === 11000) {
-            return res.status(400).json({ error: 'Domo already exists!' });
+            return res.status(400).json({ error: 'Tweet already exists!' });
         }
-        return res.status(500).json({ error: 'Am error occured making domo!' });
+        return res.status(500).json({ error: 'Am error occured making the tweet!' });
     }
 };
 
