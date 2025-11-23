@@ -3,20 +3,19 @@ const React = require('react');
 const { useState, useEffect } = React;
 const { createRoot } = require('react-dom/client');
 
-const handleDomo = (e, onDomoAdded) => {
+const handleTweet = (e, onTweetAdded) => {
     e.preventDefault();
     helper.hideError();
 
-    const name = e.target.querySelector('#domoName').value;
-    const age = e.target.querySelector('#domoAge').value;
-    const level = e.target.querySelector('#domoLevel').value;
+    const title = e.target.querySelector('#tweetTitle').value;
+    const content = e.target.querySelector('#tweetContent').value;
 
-    if (!name || !age || !level) {
-        helper.handleError('All fields are required');
+    if (!title || !content) {
+        helper.handleError('Title and content are required!');
         return false;
     }
 
-    helper.sendPost(e.target.action, { name, age, level }, onDomoAdded);
+    helper.sendPost(e.target.action, { title, content }, onTweetAdded);
     return false;
 }
 
