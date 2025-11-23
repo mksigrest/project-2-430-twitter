@@ -19,8 +19,8 @@ const handleTweet = (e, onTweetAdded) => {
     return false;
 }
 
-const DomoStats = (props) => {
-    const [stats, setStats] = useState({ totalDomos: 0, totalLevels: 0 });
+const TweetStats = (props) => {
+    const [stats, setStats] = useState({ totalTweets: 0 });
 
     useEffect(() => {
         fetch('/getStats')
@@ -30,28 +30,25 @@ const DomoStats = (props) => {
 
     return (
         <div className="stats">
-            <h3>Total Domos: {stats.totalDomos}</h3>
-            <h3>Total Levels: {stats.totalLevels}</h3>
+            <h3>Total Tweets: {stats.totalTweets}</h3>
         </div>
     )
 }
 
-const DomoForm = (props) => {
+const TweetForm = (props) => {
     return (
-        <form id="domoForm"
-            onSubmit={(e) => handleDomo(e, props.triggerReload)}
-            name="domoForm"
+        <form id="tweetForm"
+            onSubmit={(e) => handleTweet(e, props.triggerReload)}
+            name="tweetForm"
             action="/maker"
             method="POST"
-            className="domoForm"
+            className="tweetForm"
         >
-            <label htmlFor="name">Name: </label>
-            <input id="domoName" type="text" name="name" placeholder="Domo Name" />
-            <label htmlFor="age">Age: </label>
-            <input id="domoAge" type="number" min="0" name="age" placeholder="Domo age" />
-            <label htmlFor="level">Level: </label>
-            <input id="domoLevel" type="number" min="0" name="level" placeholder="Domo level" />
-            <input className="makeDomoSubmit" type="submit" value="Make Domo" />
+            <label htmlFor="title">Title: </label>
+            <input id="tweetTitle" type="text" name="title" placeholder="Tweet Title" />
+            <label htmlFor="content">Content: </label>
+            <input id="tweetContent" type="text" name="content" placeholder="Tweet Content" />
+            <input className="makeTweetSubmit" type="submit" value="Make Tweet" />
         </form>
     );
 };
