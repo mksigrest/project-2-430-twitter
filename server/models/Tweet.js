@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const _ = require('underscore');
 
-const setName = (name) => _.escape(name).trim();
+const setTitle = (title) => _.escape(title).trim();
 
 const TweetSchema = new mongoose.Schema({
     title: {
