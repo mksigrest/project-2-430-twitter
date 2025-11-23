@@ -43,21 +43,21 @@ const makerPage = (req, res) => {
     return res.render('app');
 };
 
-const getDomos = async (req, res) => {
+const getTweets = async (req, res) => {
     try {
         const query = { owner: req.session.account._id };
-        const docs = await Domo.find(query).select('name age level').lean().exec();
+        const docs = await Tweet.find(query).select('title content').lean().exec();
 
-        return res.json({ domos: docs });
+        return res.json({ tweets: docs });
     } catch (err) {
         console.log(err);
-        return res.status(500).json({ error: 'Error retrieving domos!' });
+        return res.status(500).json({ error: 'Error retrieving tweets!' });
     }
 };
 
 module.exports = {
     makerPage,
-    makeDomo,
-    getDomos,
+    makeTweet,
+    getTweets,
     getStats,
 };
