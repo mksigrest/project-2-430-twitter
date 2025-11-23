@@ -13,7 +13,6 @@ const TweetSchema = new mongoose.Schema({
     content: {
         type: String,
         required: true,
-        set: setContent,
     },
     owner: {
         type: mongoose.Schema.ObjectId,
@@ -26,11 +25,9 @@ const TweetSchema = new mongoose.Schema({
     },
 });
 
-DomoSchema.statics.toAPI = (doc) => ({
-    name: doc.name,
-    age: doc.age,
-    level: doc.level,
+TweetSchema.statics.toAPI = (doc) => ({
+    title: doc.title,
 });
 
-const DomoModel = mongoose.model('Domo', DomoSchema);
-module.exports = DomoModel;
+const TweetModel = mongoose.model('Tweet', TweetSchema);
+module.exports = TweetModel;
