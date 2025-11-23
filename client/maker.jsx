@@ -90,18 +90,18 @@ const TweetList = (props) => {
 };
 
 const App = () => {
-    const [reloadDomos, setReloadDomos] = useState(false);
+    const [reloadTweets, setReloadTweets] = useState(false);
 
     return (
         <div>
-            <div id="makeDomo">
-                <DomoForm triggerReload={() => setReloadDomos(!reloadDomos)} />
+            <div id="makeTweet">
+                <TweetForm triggerReload={() => setReloadTweets(!reloadTweets)} />
             </div>
-            <div id="domoStats">
-                <DomoStats triggerReload={reloadDomos} />
+            <div id="tweetStats">
+                <TweetStats triggerReload={reloadTweets} />
             </div>
-            <div id="domos">
-                <DomoList domos={[]} reloadDomos={reloadDomos} />
+            <div id="tweets">
+                <TweetList tweets={[]} reloadTweets={reloadTweets} />
             </div>
         </div>
     );
