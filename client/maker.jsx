@@ -73,20 +73,18 @@ const TweetList = (props) => {
         );
     }
 
-    const domoNodes = domos.map(domo => {
+    const tweetNodes = tweets.map(tweet => {
         return (
-            <div key={domo.id} className="domo">
-                <img src="/assets/img/domoface.jpeg" alt="domo face" className="domoFace" />
-                <h3 className="domoName">Name: {domo.name}</h3>
-                <h3 className="domoAge">Age: {domo.age}</h3>
-                <h3 className="domoLevel">Level: {domo.level}</h3>
+            <div key={tweet.id} className="tweet">
+                <h3 className="tweetTitle">Title: {tweet.title}</h3>
+                <h3 className="tweetContent">Content: {tweet.content}</h3>
             </div>
         );
     });
 
     return (
-        <div className="domoList">
-            {domoNodes}
+        <div className="tweetList">
+            {tweetNodes}
         </div>
     );
 };
