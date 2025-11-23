@@ -3,22 +3,17 @@ const _ = require('underscore');
 
 const setName = (name) => _.escape(name).trim();
 
-const DomoSchema = new mongoose.Schema({
-    name: {
+const TweetSchema = new mongoose.Schema({
+    title: {
         type: String,
         required: true,
         trim: true,
-        set: setName,
+        set: setTitle,
     },
-    age: {
-        type: Number,
-        min: 0,
+    content: {
+        type: String,
         required: true,
-    },
-    level: {
-        type: Number,
-        min: 0,
-        required: true,
+        set: setContent,
     },
     owner: {
         type: mongoose.Schema.ObjectId,
