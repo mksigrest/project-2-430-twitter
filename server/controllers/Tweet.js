@@ -2,7 +2,7 @@ const models = require('../models');
 const Tweet = models.Tweet;
 
 const makeTweet = async (req, res) => {
-    if (!req.body.name || !req.body.age || !req.body.level) {
+    if (!req.body.title || !req.body.content ) {
         return res.status(400).json({ error: 'Title and content are required!' });
     }
 
