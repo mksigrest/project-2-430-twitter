@@ -22,7 +22,7 @@ const makeTweet = async (req, res) => {
         if (err.code === 11000) {
             return res.status(400).json({ error: 'Tweet already exists!' });
         }
-        return res.status(500).json({ error: 'Am error occured making the tweet!' });
+        return res.status(500).json({ error: 'An error occured making the tweet!' });
     }
 };
 

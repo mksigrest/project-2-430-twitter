@@ -25,7 +25,7 @@ const TweetSchema = new mongoose.Schema({
     },
     createdDate: {
         type: Date,
-        default: Date.new,
+        default: Date.now,
     },
 });
 
