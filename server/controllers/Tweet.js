@@ -2,20 +2,21 @@ const models = require('../models');
 const Tweet = models.Tweet;
 
 const makeTweet = async (req, res) => {
-    if (!req.body.title || !req.body.content ) {
-        return res.status(400).json({ error: 'Title and content are required!' });
+    if (!req.body.title || !req.body.content || !req.body.type) {
+        return res.status(400).json({ error: 'Title, content, and type all required!' });
     }
 
     const tweetData = {
         title: req.body.title,
         content: req.body.content,
+        type: req.body.type,
         owner: req.session.account._id,
     };
 
     try {
         const newTweet = new Tweet(tweetData);
         await newTweet.save();
-        return res.status(201).json({ title: newTweet.title, content: newTweet.content });
+        return res.status(201).json({ title: newTweet.title, content: newTweet.content, type: newTweet.type });
     } catch (err) {
         console.log(err);
         if (err.code === 11000) {
