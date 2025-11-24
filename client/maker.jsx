@@ -84,6 +84,7 @@ const TweetList = (props) => {
             <div key={tweet.id} className="tweet">
                 <h3 className="tweetTitle">Title: {tweet.title}</h3>
                 <h3 className="tweetContent">Content: {tweet.content}</h3>
+                <h3 className="tweetType">Type: {tweet.type}</h3>
             </div>
         );
     });
