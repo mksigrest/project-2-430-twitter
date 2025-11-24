@@ -14,6 +14,10 @@ const TweetSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    type: {
+        type: Boolean,
+        required: true,
+    }
     owner: {
         type: mongoose.Schema.ObjectId,
         required: true,
