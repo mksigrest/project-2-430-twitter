@@ -16,8 +16,8 @@ const router = (app) => {
     app.get('/maker', mid.requiresLogin, controllers.Tweet.makerPage);
     app.post('/maker', mid.requiresLogin, controllers.Tweet.makeTweet);
 
-    app.get('/viewer', mid.requiredLogin, controllers.Tweet.viewerPage);
-    app.post('/viewer', mid.requiresLogin, controllers.Tweet.viewTweet);
+    //app.get('/viewer', mid.requiredLogin, controllers.Tweet.viewerPage);
+    //app.post('/viewer', mid.requiresLogin, controllers.Tweet.viewTweet);
 
     app.get('/', mid.requiresSecure, mid.requiresLogout, controllers.Account.loginPage);
 };
