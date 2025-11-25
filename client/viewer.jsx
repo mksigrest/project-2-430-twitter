@@ -26,34 +26,33 @@ const TweetView = ({ tweets, users }) => {
         ? [] : tweets.filter((tweet) => selectedUsers.includes(tweet.owner));
 
     return (
-        <><h2>Registered Users</h2><ul>
-            <li>
-                <label>
-                    <input
-                        type="checkbox"
-                        checked={selectedUsers.length === users.length && users.length > 0}
-                        onChange={() => {
-                            if (selectedUsers.length === users.length) {
-                                setSelectedUsers([]);
-                            } else {
-                                setSelectedUsers(users.map((u) => u._id));
-                            }
-                        }}
-                    />
-                View All:
-            </label></li>
-                {users.map((user) => (
-                    <li key={user._id}>
-                        <label>
-                            <input
-                                type="checkbox"
-                                checked={selectedUsers.includes(user._id)}
-                                onChange={() => toggleUser(user._id)}
-                            />
-                            {user.username}
-                        </label>
-                    </li>
-                ))}
+        <><h2>Registered Users</h2>
+            <ul>
+                <li>
+                    <label>
+                        <input
+                            type="checkbox"
+                            checked={selectedUsers.length === users.length && users.length > 0}
+                            onChange={() => {
+                                if (selectedUsers.length === users.length) {
+                                    setSelectedUsers([]);
+                                } else {
+                                    setSelectedUsers(users.map((u) => u._id));
+                                }
+                            }}/>
+                        View All:
+                    </label>
+                </li> {users.map((user) => (
+                <li key={user._id}>
+                    <label>
+                        <input
+                            type="checkbox"
+                            checked={selectedUsers.includes(user._id)}
+                            onChange={() => toggleUser(user._id)}/>
+                    {user.username}
+                    </label>
+                </li>
+            ))}
             </ul>
 
             <h2>Viewable Tweets</h2>
