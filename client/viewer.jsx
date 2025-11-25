@@ -27,21 +27,23 @@ const TweetView = ({ tweets, users }) => {
 
     return (
         <><h2>Registered Users</h2><ul>
+            <li>
+                <label>
+                    <input
+                        type="checkbox"
+                        checked={selectedUsers.length === users.length && users.length > 0}
+                        onChange={() => {
+                            if (selectedUsers.length === users.length) {
+                                setSelectedUsers([]);
+                            } else {
+                                setSelectedUsers(users.map((u) => u._id));
+                            }
+                        }}
+                    />
+                Select All:
+            </label></li>
                 {users.map((user) => (
                     <li key={user._id}>
-                        <label>
-                            <input
-                                type="checkbox"
-                                checked={selectedUsers.length === users.length && users.length > 0}
-                                onChange={() => {
-                                    if (selectedUsers.length === users.length) {
-                                        setSelectedUsers([]);
-                                    } else {
-                                        setSelectedUsers(users.map((u) => u._id));
-                                    }
-                                }}
-                            />
-                        </label>
                         <label>
                             <input
                                 type="checkbox"
