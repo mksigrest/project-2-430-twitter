@@ -35,12 +35,16 @@ const TweetView = ({ tweets, users }) => {
 
             <h2>Viewable Tweets</h2>
             <div className="tweetList">
-                {tweets.map((tweet) => (
-                    <div key={tweet._id} className="tweet">
-                        <h3 className="tweetTitle">Title: {tweet.title}</h3>
-                        <h3 className="tweetContent">Content: {tweet.content}</h3>
-                    </div>
-                ))}
+                {filteredTweets.length === 0 ? (
+                    <h3>No tweets from selected users</h3>
+                ) : (
+                    filteredTweets.map((tweet) => (
+                        <div key={tweet._id} className="tweet">
+                             <h3 className="tweetTitle">Title: {tweet.title}</h3>
+                         <h3 className="tweetContent">Content: {tweet.content}</h3>
+                            </div>
+                     ))
+                )}
             </div>
         </>
     );
