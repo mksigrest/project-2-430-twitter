@@ -17,6 +17,8 @@ const TweetView = ({ tweets, users }) => {
         );
     };
 
+    const toggleFeel = () => { };
+
     const getUserName = (id) => {
         const user = users.find((u) => u._id === id);
         return user ? user.username : "Unknown";
@@ -51,11 +53,13 @@ const TweetView = ({ tweets, users }) => {
                             onChange={() => toggleUser(user._id)}/>
                     {user.username}
                     </label>
-                </li>
-            ))}
+                </li>))}
             </ul>
-
-            <h2>Viewable Tweets</h2>
+        <h2>Sort by Quote feels</h2>
+            <ul>
+                <li>Happy</li>
+            </ul>
+        <h2>Viewable Tweets</h2>
             <div className="tweetList">
                 {filteredTweets.length === 0 ? (
                     <h3>No tweets from selected users</h3>
