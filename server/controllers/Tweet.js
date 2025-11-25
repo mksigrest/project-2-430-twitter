@@ -1,5 +1,6 @@
 const models = require('../models');
 const Tweet = models.Tweet;
+const Account = models.Account;
 
 const makeTweet = async (req, res) => {
     if (!req.body.title || !req.body.content || !req.body.type) {
@@ -67,7 +68,14 @@ const viewTweets = async (req, res) => {
 };
 
 const getUsers = async (req, res) => {
+    try {
+        const users = await Account.find({}).select('username').lean();
 
+        return res.json({ users });
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({ error: 'Error finding users' });
+    }
 }
 
 const makerPage = (req, res) => {
