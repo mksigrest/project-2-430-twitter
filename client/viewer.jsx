@@ -40,7 +40,7 @@ const TweetView = ({ tweets, users }) => {
                             }
                         }}
                     />
-                Select All:
+                View All:
             </label></li>
                 {users.map((user) => (
                     <li key={user._id}>
