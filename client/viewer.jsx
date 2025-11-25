@@ -28,7 +28,7 @@ const TweetView = () => {
 
 const init = () => {
     const root = createRoot(document.getElementById('app'));
-    root.render();
+    root.render(<TweetView /> );
 };
 
 window.onload = init;
