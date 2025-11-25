@@ -15,7 +15,7 @@ const TweetSchema = new mongoose.Schema({
         required: true,
     },
     type: {
-        type: Boolean,
+        type: String,
         required: true,
     },
     owner: {
