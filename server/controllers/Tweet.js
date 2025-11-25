@@ -11,7 +11,7 @@ const makeTweet = async (req, res) => {
         title: req.body.title,
         content: req.body.content,
         type: req.body.type,
-        feel: req.body.type,
+        feel: req.body.feel,
         owner: req.session.account._id,
     };
 
