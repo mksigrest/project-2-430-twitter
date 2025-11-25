@@ -7,8 +7,12 @@ const TweetView = ({ tweets, users }) => {
         return <h3>No Public Tweets!</h3>;
     }
 
-    const [selectedUsers, setSelectedUsers] = React.useState([]);
+    const getUserName = (id) => {
+        const user = users.find((u) => u._id === id);
+        return user ? user.username : "Unknown";
+    };
 
+    const [selectedUsers, setSelectedUsers] = React.useState([]);
     const toggleUser = (userId) => {
         setSelectedUsers((prev) =>
             prev.includes(userId)
@@ -25,11 +29,6 @@ const TweetView = ({ tweets, users }) => {
                 ? prev.filter(f => f !== feel)
                 : [...prev, feel]
         );
-    };
-
-    const getUserName = (id) => {
-        const user = users.find((u) => u._id === id);
-        return user ? user.username : "Unknown";
     };
 
     const filteredTweets = selectedUsers.length === 0
