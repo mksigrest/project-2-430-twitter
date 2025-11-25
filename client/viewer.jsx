@@ -32,7 +32,7 @@ const TweetView = ({ tweets, users }) => {
     };
 
     const filteredTweets = tweets.filter(tweet => 
-
+        (selectedUsers.length === 0 || selectedUsers.includes(tweet.owner)) &&
     );
 
     return (
