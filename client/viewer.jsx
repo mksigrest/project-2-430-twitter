@@ -17,7 +17,15 @@ const TweetView = ({ tweets, users }) => {
         );
     };
 
-    const toggleFeel = () => { };
+    const feels = ["Happy", "Sad", "Funny"];
+    const [selectedFeels, setSelectedFeels] = React.useState([]);
+    const toggleFeel = (feel) => {
+        setSelectedFeels((prev) =>
+            prev.includes(feel)
+                ? prev.filter(f => f !== feel)
+                : [...prev, feel]
+        );
+    };
 
     const getUserName = (id) => {
         const user = users.find((u) => u._id === id);
@@ -57,7 +65,14 @@ const TweetView = ({ tweets, users }) => {
             </ul>
         <h2>Sort by Quote feels</h2>
             <ul>
-                <li>Happy</li>
+                <li>
+                    <label>
+                        <input
+                            type="checkbox"
+
+                        />
+                    </label>
+                </li>
             </ul>
         <h2>Viewable Tweets</h2>
             <div className="tweetList">
