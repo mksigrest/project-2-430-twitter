@@ -47,7 +47,7 @@ const makerPage = (req, res) => {
 const getTweets = async (req, res) => {
     try {
         const query = { owner: req.session.account._id };
-        const docs = await Tweet.find(query).select('title content').lean().exec();
+        const docs = await Tweet.find(query).select('title content type').lean().exec();
 
         return res.json({ tweets: docs });
     } catch (err) {
