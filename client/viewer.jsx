@@ -18,7 +18,7 @@ const TweetView = ({ tweets, users }) => {
     };
 
     const filteredTweets = selectedUsers.length === 0
-        
+        ? [] : tweets.filter((tweet) => selectedUsers.includes(tweet.owner));
 
     return (
         <><h2>Registered Users</h2><ul>
