@@ -3,14 +3,15 @@ const Tweet = models.Tweet;
 const Account = models.Account;
 
 const makeTweet = async (req, res) => {
-    if (!req.body.title || !req.body.content || !req.body.type) {
-        return res.status(400).json({ error: 'Title, content, and type all required!' });
+    if (!req.body.title || !req.body.content || !req.body.type || !req.body.feel) {
+        return res.status(400).json({ error: 'Title, content, type, and feel are all required!' });
     }
 
     const tweetData = {
         title: req.body.title,
         content: req.body.content,
         type: req.body.type,
+        feel: req.body.type,
         owner: req.session.account._id,
     };
 
