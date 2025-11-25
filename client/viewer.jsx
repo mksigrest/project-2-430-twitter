@@ -17,6 +17,9 @@ const TweetView = ({ tweets, users }) => {
         );
     };
 
+    const filteredTweets = selectedUsers.length === 0
+        
+
     return (
         <><h2>Registered Users</h2><ul>
                 {users.map((user) => (
