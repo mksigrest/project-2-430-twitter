@@ -32,6 +32,12 @@ const TweetView = ({ tweets, users }) => {
                         <label>
                             <input
                                 type="checkbox"
+                                checked={selectedUsers.length === users.length && users.length > 0}
+                            />
+                        </label>
+                        <label>
+                            <input
+                                type="checkbox"
                                 checked={selectedUsers.includes(user._id)}
                                 onChange={() => toggleUser(user._id)}
                             />
