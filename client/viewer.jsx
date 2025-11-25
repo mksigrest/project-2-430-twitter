@@ -33,6 +33,7 @@ const TweetView = ({ tweets, users }) => {
 
     const filteredTweets = tweets.filter(tweet => 
         (selectedUsers.length === 0 || selectedUsers.includes(tweet.owner)) &&
+        (selectedFeels.length === 0 || selectedFeels.includes(tweet.feel))
     );
 
     return (
@@ -69,7 +70,8 @@ const TweetView = ({ tweets, users }) => {
                     <label>
                         <input
                             type="checkbox"
-
+                            checked={selectedFeels.includes(feel)}
+                            onChange={() => toggleFeel(feel)}
                         />
                     </label>
                 </li>
