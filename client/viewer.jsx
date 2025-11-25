@@ -20,14 +20,18 @@ const TweetView = () => {
     }
 
     return (
-        <div className="tweetList">
-            {tweets.map((tweet) => (
-                <div key={tweet._id} className="tweet">
-                    <h3 className="tweetTitle">Title: {tweet.title}</h3>
-                    <h3 className="tweetContent">Content: {tweet.content}</h3>
-                </div>
+        <><h2>Registered Users</h2><ul>
+            {users.map((user) => (
+                <li key={user._id}>{user.username}</li>
             ))}
-        </div>
+        </ul><div className="tweetList">
+                {tweets.map((tweet) => (
+                    <div key={tweet._id} className="tweet">
+                        <h3 className="tweetTitle">Title: {tweet.title}</h3>
+                        <h3 className="tweetContent">Content: {tweet.content}</h3>
+                    </div>
+                ))}
+        </div></>
     );
 };
 
@@ -42,9 +46,10 @@ const init = () => {
         fetch('/viewTweets').then((r) => r.json()),
         loadUsers(),
     ]);
+    const tweets = tweetRes.tweets;
 
     const root = createRoot(document.getElementById('app'));
-    root.render(<TweetView /> );
+    root.render(<TweetView tweets={tweets} users={users} /> );
 };
 
 window.onload = init;
