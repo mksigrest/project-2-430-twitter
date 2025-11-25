@@ -12,12 +12,12 @@ const handleTweet = (e, onTweetAdded) => {
     const type = e.target.querySelector('#tweetType').value;
     const feel = e.target.querySelector('#tweetFeel').value;
 
-    if (!title || !content || !type) {
-        helper.handleError('Title, content, and type are all required!');
+    if (!title || !content || !type || !feel) {
+        helper.handleError('Title, content, type, and feel are all required!');
         return false;
     }
 
-    helper.sendPost(e.target.action, { title, content, type }, onTweetAdded);
+    helper.sendPost(e.target.action, { title, content, type, feel }, onTweetAdded);
     return false;
 }
 
@@ -55,6 +55,12 @@ const TweetForm = (props) => {
                 <option value="public">Public</option>
                 <option value="private">Private</option>
             </select>
+            <label htmlFor="feel">Feel: </label>
+            <select id="tweetFeel" name="feel">
+                <option value="Happy">Happy</option>
+                <option value="Sad">Sad</option>
+                <option value="Funny">Funny</option>
+            </select>
             <input className="makeTweetSubmit" type="submit" value="Make Tweet" />
         </form>
     );
@@ -86,6 +92,7 @@ const TweetList = (props) => {
                 <h3 className="tweetTitle">Title: {tweet.title}</h3>
                 <h3 className="tweetContent">Content: {tweet.content}</h3>
                 <h3 className="tweetType">Type: {tweet.type}</h3>
+                <h3 className="tweetFeel">Feel: {tweet.feel}</h3>
                 <h3>-------------------------------------------------</h3>
             </div>
         );
