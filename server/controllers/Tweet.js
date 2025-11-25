@@ -66,6 +66,10 @@ const viewTweets = async (req, res) => {
     }
 };
 
+const getUsers = async (req, res) => {
+
+}
+
 const makerPage = (req, res) => {
     return res.render('app');
 };

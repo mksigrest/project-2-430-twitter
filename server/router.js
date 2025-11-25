@@ -6,6 +6,7 @@ const router = (app) => {
     app.get('/getTweets', mid.requiresLogin, controllers.Tweet.getTweets);
     app.get('/getStats', mid.requiresLogin, controllers.Tweet.getStats);
     app.get('/viewTweets', mid.requiresLogin, controllers.Tweet.viewTweets);
+    app.get('/getUsers', mid.requiresLogin, controllers.Tweet.getUsers);
 
     app.get('/login', mid.requiresSecure, mid.requiresLogout, controllers.Account.loginPage);
     app.post('/login', mid.requiresSecure, mid.requiresLogout, controllers.Account.login);
