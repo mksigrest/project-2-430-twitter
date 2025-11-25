@@ -31,7 +31,18 @@ const TweetView = () => {
     );
 };
 
+const loadUsers = async () => {
+    const response = await fetch('/getUsers');
+    const data = await response.json();
+    return data.users;
+};
+
 const init = () => {
+    const [tweetRes, users] = await Promise.all([
+        fetch('/viewTweets').then((r) => r.json()),
+        loadUsers(),
+    ]);
+
     const root = createRoot(document.getElementById('app'));
     root.render(<TweetView /> );
 };

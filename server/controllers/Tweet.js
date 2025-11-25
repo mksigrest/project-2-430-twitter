@@ -93,4 +93,5 @@ module.exports = {
     getTweets,
     getStats,
     viewTweets,
+    getUsers,
 };
