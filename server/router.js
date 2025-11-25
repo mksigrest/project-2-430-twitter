@@ -5,6 +5,7 @@ const mid = require('./middleware');
 const router = (app) => {
     app.get('/getTweets', mid.requiresLogin, controllers.Tweet.getTweets);
     app.get('/getStats', mid.requiresLogin, controllers.Tweet.getStats);
+    app.get('/viewTweets', mid.requiresLogin, controllers.Tweet.viewTweets);
 
     app.get('/login', mid.requiresSecure, mid.requiresLogout, controllers.Account.loginPage);
     app.post('/login', mid.requiresSecure, mid.requiresLogout, controllers.Account.login);
@@ -17,7 +18,6 @@ const router = (app) => {
     app.post('/maker', mid.requiresLogin, controllers.Tweet.makeTweet);
 
     app.get('/viewer', mid.requiresLogin, controllers.Tweet.viewerPage);
-    app.post('/viewer', mid.requiresLogin, controllers.Tweet.viewTweets);
 
     app.get('/', mid.requiresSecure, mid.requiresLogout, controllers.Account.loginPage);
 };
