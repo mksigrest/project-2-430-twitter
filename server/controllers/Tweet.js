@@ -56,9 +56,24 @@ const getTweets = async (req, res) => {
     }
 };
 
+const viewTweets = async (req, res) => {
+    try {
+        const ownerId = req.session.account._id;
+
+        const docs = await Tweet.find({ owner: ownerId, type: 'public' })
+            .select('title content type').lean.exec();
+
+        return res.json({ tweets: docs });
+    } catch (err) {
+        console.log(err);
+        return res.status(500).json({ error: 'Error retrieving public tweets' });
+    }
+};
+
 module.exports = {
     makerPage,
     makeTweet,
     getTweets,
     getStats,
+    viewTweets,
 };
