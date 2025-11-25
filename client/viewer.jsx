@@ -66,6 +66,7 @@ const TweetView = ({ tweets, users }) => {
                             <h3 className="tweetTitle">Title: {tweet.title}</h3>
                             <h3 className="tweetContent">Content: {tweet.content}</h3>
                             <h3 className="tweetOwner">Author: {getUserName(tweet.owner)}</h3>
+                            <h3 className="tweetFeel">Feel: {tweet.feel}</h3>
                             <h3>----------------------------------------------------</h3>
                         </div>
                      ))
