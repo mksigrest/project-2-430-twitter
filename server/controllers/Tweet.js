@@ -56,10 +56,8 @@ const getTweets = async (req, res) => {
 
 const viewTweets = async (req, res) => {
     try {
-        const ownerId = req.session.account._id;
-
         const docs = await Tweet.find({ type: 'public' })
-            .select('title content type owner username feel').lean().exec();
+            .select('title content type owner feel').lean().exec();
 
         return res.json({ tweets: docs });
     } catch (err) {

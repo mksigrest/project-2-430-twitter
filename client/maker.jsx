@@ -10,6 +10,7 @@ const handleTweet = (e, onTweetAdded) => {
     const title = e.target.querySelector('#tweetTitle').value;
     const content = e.target.querySelector('#tweetContent').value;
     const type = e.target.querySelector('#tweetType').value;
+    const feel = e.target.querySelector('#tweetFeel').value;
 
     if (!title || !content || !type) {
         helper.handleError('Title, content, and type are all required!');
