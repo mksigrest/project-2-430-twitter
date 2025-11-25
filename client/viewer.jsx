@@ -66,15 +66,17 @@ const TweetView = ({ tweets, users }) => {
             </ul>
         <h2>Sort by Quote feels</h2>
             <ul>
-                <li>
+                {feels.map(feel => (
+                    <li key={feel}>
                     <label>
                         <input
                             type="checkbox"
                             checked={selectedFeels.includes(feel)}
                             onChange={() => toggleFeel(feel)}
                         />
+                        {feel}
                     </label>
-                </li>
+                </li>))}
             </ul>
         <h2>Viewable Tweets</h2>
             <div className="tweetList">
