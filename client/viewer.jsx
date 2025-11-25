@@ -39,21 +39,7 @@ const TweetView = ({ tweets, users }) => {
     return (
         <><h2>Registered Users</h2>
             <ul>
-                <li>
-                    <label>
-                        <input
-                            type="checkbox"
-                            checked={selectedUsers.length === users.length && users.length > 0}
-                            onChange={() => {
-                                if (selectedUsers.length === users.length) {
-                                    setSelectedUsers([]);
-                                } else {
-                                    setSelectedUsers(users.map((u) => u._id));
-                                }
-                            }}/>
-                        View All:
-                    </label>
-                </li> {users.map((user) => (
+                {users.map((user) => (
                 <li key={user._id}>
                     <label>
                         <input
@@ -67,7 +53,7 @@ const TweetView = ({ tweets, users }) => {
         <h2>Sort by Quote feels</h2>
             <ul>
                 {feels.map(feel => (
-                    <li key={feel}>
+                <li key={feel}>
                     <label>
                         <input
                             type="checkbox"
