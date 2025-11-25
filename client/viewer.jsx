@@ -17,6 +17,11 @@ const TweetView = ({ tweets, users }) => {
         );
     };
 
+    const getUserName = (id) => {
+        const user = users.find((u) => u._id === id);
+        return user ? user.username : "Unknown";
+    };
+
     const filteredTweets = selectedUsers.length === 0
         ? [] : tweets.filter((tweet) => selectedUsers.includes(tweet.owner));
 
@@ -43,9 +48,11 @@ const TweetView = ({ tweets, users }) => {
                 ) : (
                     filteredTweets.map((tweet) => (
                         <div key={tweet._id} className="tweet">
-                             <h3 className="tweetTitle">Title: {tweet.title}</h3>
-                         <h3 className="tweetContent">Content: {tweet.content}</h3>
-                            </div>
+                            <h3 className="tweetTitle">Title: {tweet.title}</h3>
+                            <h3 className="tweetContent">Content: {tweet.content}</h3>
+                            <h3 className="tweetOwner">Author: {tweet.user.username}</h3>
+                            <h3>----------------------------------------------------</h3>
+                        </div>
                      ))
                 )}
             </div>
