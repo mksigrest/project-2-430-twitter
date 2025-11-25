@@ -40,10 +40,6 @@ const getStats = async (req, res) => {
     }
 };
 
-const makerPage = (req, res) => {
-    return res.render('app');
-};
-
 const getTweets = async (req, res) => {
     try {
         const query = { owner: req.session.account._id };
@@ -70,8 +66,17 @@ const viewTweets = async (req, res) => {
     }
 };
 
+const makerPage = (req, res) => {
+    return res.render('app');
+};
+
+const viewerPage = (req, res) => {
+    return res.render('viewer');
+};
+
 module.exports = {
     makerPage,
+    viewerPage,
     makeTweet,
     getTweets,
     getStats,
