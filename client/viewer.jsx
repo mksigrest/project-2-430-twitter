@@ -33,6 +33,13 @@ const TweetView = ({ tweets, users }) => {
                             <input
                                 type="checkbox"
                                 checked={selectedUsers.length === users.length && users.length > 0}
+                                onChange={() => {
+                                    if (selectedUsers.length === users.length) {
+                                        setSelectedUsers([]);
+                                    } else {
+                                        setSelectedUsers(users.map((u) => u._id));
+                                    }
+                                }}
                             />
                         </label>
                         <label>
