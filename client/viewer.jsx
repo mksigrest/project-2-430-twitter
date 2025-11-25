@@ -7,15 +7,33 @@ const TweetView = ({ tweets, users }) => {
         return <h3>No Public Tweets!</h3>;
     }
 
+    const [selectedUsers, setSelectedUsers] = React.useState([]);
+
+    const toggleUser = (userId) => {
+        setSelectedUsers((prev) =>
+            prev.includes(userId)
+                ? prev.filter((id) => id !== userId)
+                : [...prev, userId]
+        );
+    };
+
     return (
-        <>
-            <h2>Registered Users</h2>
-            <ul>
+        <><h2>Registered Users</h2><ul>
                 {users.map((user) => (
-                    <li key={user._id}>{user.username}</li>
+                    <li key={user._id}>
+                        <label>
+                            <input
+                                type="checkbox"
+                                checked={selectedUsers.includes(user._id)}
+                                onChange={() => toggleUser(user._id)}
+                            />
+                            {user.username}
+                        </label>
+                    </li>
                 ))}
             </ul>
 
+            <h2>Viewable Tweets</h2>
             <div className="tweetList">
                 {tweets.map((tweet) => (
                     <div key={tweet._id} className="tweet">
