@@ -86,7 +86,7 @@ const TweetList = (props) => {
         );
     }
 
-    const tweetNodes = tweets.map(tweet => {
+    const tweetNodes = tweets.sort((a, b) => new Date(b.createdDate) - new Date(a.createdDate)).map(tweet => {
         return (
             <div key={tweet.id} className="tweet">
                 <h3 className="tweetTitle">Title: {tweet.title}</h3>
