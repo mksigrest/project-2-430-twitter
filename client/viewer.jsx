@@ -69,7 +69,9 @@ const TweetView = ({ tweets, users }) => {
                 {filteredTweets.length === 0 ? (
                     <h3>No tweets from selected users</h3>
                 ) : (
-                    filteredTweets.map((tweet) => (
+                    [...filteredTweets]
+                        .sort((a, b) => new Date(b.createdDate) - new Date(a.createdDate))
+                        .map((tweet) => (
                         <div key={tweet._id} className="tweet">
                             <h3 className="tweetTitle">Title: {tweet.title}</h3>
                             <h3 className="tweetContent">Content: {tweet.content}</h3>
@@ -77,7 +79,7 @@ const TweetView = ({ tweets, users }) => {
                             <h3 className="tweetFeel">Feel: {tweet.feel}</h3>
                             <h3>----------------------------------------------------</h3>
                         </div>
-                     ))
+                    ))
                 )}
             </div>
         </>
