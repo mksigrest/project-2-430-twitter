@@ -36,6 +36,9 @@ const TweetView = ({ tweets, users }) => {
         (selectedFeels.length === 0 || selectedFeels.includes(tweet.feel))
     );
 
+    const sortedTweets = filteredTweets.sort(
+        (a, b) => new Date(b.createdDate) - new Date(a.createdDate))
+
     return (
         <><h2>Registered Users</h2>
             <ul>
@@ -69,8 +72,7 @@ const TweetView = ({ tweets, users }) => {
                 {filteredTweets.length === 0 ? (
                     <h3>No tweets from selected users</h3>
                 ) : (
-                    [...filteredTweets]
-                        .sort((a, b) => new Date(b.createdDate) - new Date(a.createdDate))
+                    sortedTweets
                         .map((tweet) => (
                         <div key={tweet._id} className="tweet">
                             <h3 className="tweetTitle">Title: {tweet.title}</h3>
