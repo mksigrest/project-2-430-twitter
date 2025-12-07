@@ -18,7 +18,7 @@ const makeTweet = async (req, res) => {
     try {
         const newTweet = new Tweet(tweetData);
         await newTweet.save();
-        return res.status(201).json({ title: newTweet.title, content: newTweet.content, type: newTweet.type, feel: newTweet.feel });
+        return res.status(201).json({ title: newTweet.title, content: newTweet.content, type: newTweet.type, feel: newTweet.feel, owner: newTweet.owner, createdDate: newTweet.createdDate });
     } catch (err) {
         console.log(err);
         if (err.code === 11000) {
@@ -45,7 +45,7 @@ const getStats = async (req, res) => {
 const getTweets = async (req, res) => {
     try {
         const query = { owner: req.session.account._id };
-        const docs = await Tweet.find(query).select('title content type owner feel').lean().exec();
+        const docs = await Tweet.find(query).select('title content type owner feel owner createdDate').lean().exec();
 
         return res.json({ tweets: docs });
     } catch (err) {
@@ -57,7 +57,7 @@ const getTweets = async (req, res) => {
 const viewTweets = async (req, res) => {
     try {
         const docs = await Tweet.find({ type: 'public' })
-            .select('title content type owner feel').lean().exec();
+            .select('title content type feel owner createdDate').lean().exec();
 
         return res.json({ tweets: docs });
     } catch (err) {
