@@ -74,6 +74,12 @@ const changePassword = async (req, res) => {
         const hash = await Account.generateHash(pass);
         account.password = hash;
         await account.save();
+
+        req.session.account = Account.toAPI(account);
+        return res.json({ message: 'Password changed' });
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({ error: 'Error changing password' });
     }
 };
 
