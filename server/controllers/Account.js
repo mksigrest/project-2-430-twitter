@@ -71,6 +71,9 @@ const changePassword = async (req, res) => {
         if (!match) {
             return res.status(401).json({ error: 'Current password is incorrect' });
         }
+        const hash = await Account.generateHash(pass);
+        account.password = hash;
+        await account.save();
     }
 };
 
