@@ -141,6 +141,18 @@ const AccountForm = (props) => {
             return res.status(500).json({ error: 'Error changing password' });
         }
     };
+
+    return (
+        <div className="accountForm">
+            <h3>{username}</h3>
+            <h3>Change Password:</h3>
+            <form id="accountForm" onSubmit={handleChangePassword} method="POST">
+                <label>Curr Pass</label>
+                <label>New Pass</label>
+                <label>ReEnter New Pass</label>
+            </form>
+        </div>
+    )
 };
 
 const App = () => {
