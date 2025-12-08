@@ -1,4 +1,4 @@
-/* eslint-disable linebreak-style */
+const bcrypt = require('bcrypt');
 const Account = require('../models/Account');
 
 const loginPage = (req, res) => {
@@ -49,10 +49,26 @@ const signup = async (req, res) => {
     return res.status(500).json({ error: 'An error occured!' });
   }
 };
+const changePassword = async (req, res) => {
+    const username = `${req.body.username}`;
+    const curPass = `${req.body.curPass}`;
+    const pass = `${req.body.pass}`;
+    const pass2 = `${req.body.pass2}`;
+
+    if (!curPass || !pass || !pass2) {
+        return res.status(400).json({ error: 'All fields are required!' });
+    }
+    if (pass !== pass2) {
+        return res.status(400).json({ error: 'New passwords do not match' });
+    }
+
+    const 
+};
 
 module.exports = {
   loginPage,
   login,
   logout,
   signup,
+  changePassword,
 };
