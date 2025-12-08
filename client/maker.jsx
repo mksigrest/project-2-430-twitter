@@ -37,35 +37,6 @@ const TweetStats = (props) => {
     )
 }
 
-const TweetForm = (props) => {
-    return (
-        <form id="tweetForm"
-            onSubmit={(e) => handleTweet(e, props.triggerReload)}
-            name="tweetForm"
-            action="/maker"
-            method="POST"
-            className="tweetForm"
-        >
-            <label htmlFor="title">Title: </label>
-            <input id="tweetTitle" type="text" name="title" placeholder="Tweet Title" />
-            <label htmlFor="content">Content: </label>
-            <input id="tweetContent" type="text" name="content" placeholder="Tweet Content" />
-            <label htmlFor="type">Type: </label>
-            <select id="tweetType" name="type">
-                <option value="public">Public</option>
-                <option value="private">Private</option>
-            </select>
-            <label htmlFor="feel">Feel: </label>
-            <select id="tweetFeel" name="feel">
-                <option value="Happy">Happy</option>
-                <option value="Sad">Sad</option>
-                <option value="Funny">Funny</option>
-            </select>
-            <input className="makeTweetSubmit" type="submit" value="Make Tweet" />
-        </form>
-    );
-};
-
 const TweetList = (props) => {
     const [tweets, setTweets] = useState(props.tweets);
 
@@ -103,6 +74,39 @@ const TweetList = (props) => {
             {tweetNodes}
         </div>
     );
+};
+
+const TweetForm = (props) => {
+    return (
+        <form id="tweetForm"
+            onSubmit={(e) => handleTweet(e, props.triggerReload)}
+            name="tweetForm"
+            action="/maker"
+            method="POST"
+            className="tweetForm"
+        >
+            <label htmlFor="title">Title: </label>
+            <input id="tweetTitle" type="text" name="title" placeholder="Tweet Title" />
+            <label htmlFor="content">Content: </label>
+            <input id="tweetContent" type="text" name="content" placeholder="Tweet Content" />
+            <label htmlFor="type">Type: </label>
+            <select id="tweetType" name="type">
+                <option value="public">Public</option>
+                <option value="private">Private</option>
+            </select>
+            <label htmlFor="feel">Feel: </label>
+            <select id="tweetFeel" name="feel">
+                <option value="Happy">Happy</option>
+                <option value="Sad">Sad</option>
+                <option value="Funny">Funny</option>
+            </select>
+            <input className="makeTweetSubmit" type="submit" value="Make Tweet" />
+        </form>
+    );
+};
+
+const AccountForm = (props) => {
+
 };
 
 const App = () => {
