@@ -62,7 +62,16 @@ const changePassword = async (req, res) => {
         return res.status(400).json({ error: 'New passwords do not match' });
     }
 
-    const 
+    try {
+        const account = await Account.findById(req.session.account._id).exec();
+        if (!account) {
+            return res.status(404).json({ error: 'Account not found' });
+        }
+        const match = await bcrypt.compare(curPass, account.password);
+        if (!match) {
+            return res.status(401).json({ error: 'Current password is incorrect' });
+        }
+    }
 };
 
 module.exports = {
