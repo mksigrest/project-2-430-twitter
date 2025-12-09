@@ -72,7 +72,7 @@ const TweetView = ({ tweets, users }) => {
                         .sort((a, b) => new Date(b.createdDate) - new Date(a.createdDate))
                         .map((tweet) => (
                         <div key={tweet._id} className="tweet">
-                            <h3 className="tweetTitle">Title: {tweet.title}</h3>
+                            <h3 className="tweetTitle">Author: {tweet.title}</h3>
                             <h3 className="tweetContent">Content: {tweet.content}</h3>
                             <h3 className="tweetOwner">Author: {getUserName(tweet.owner)}</h3>
                             <h3 className="tweetFeel">Feel: {tweet.feel}</h3>

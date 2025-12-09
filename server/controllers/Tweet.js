@@ -40,20 +40,6 @@ const makeTweet = async (req, res) => {
     }
 };
 
-const getStats = async (req, res) => {
-    try {
-        const ownerId = req.session.account._id;
-        const tweets = await Tweet.find({ owner: ownerId });
-
-        const totalTweets = tweets.length;
-
-        return res.json({ totalTweets });
-    } catch (err) {
-        console.error(err);
-        return res.status(400).json({ error: 'Error fetching statistics ' });
-    }
-};
-
 const getTweets = async (req, res) => {
     try {
         const query = { owner: req.session.account._id };
@@ -78,6 +64,12 @@ const viewTweets = async (req, res) => {
     }
 };
 
+const updateTweet = async (req, res) => {
+    try {
+
+    }
+};
+
 const getUsers = async (req, res) => {
     try {
         const users = await Account.find({}).select('username').lean();
@@ -86,6 +78,20 @@ const getUsers = async (req, res) => {
     } catch (err) {
         console.error(err);
         return res.status(500).json({ error: 'Error finding users' });
+    }
+};
+
+const getStats = async (req, res) => {
+    try {
+        const ownerId = req.session.account._id;
+        const tweets = await Tweet.find({ owner: ownerId });
+
+        const totalTweets = tweets.length;
+
+        return res.json({ totalTweets });
+    } catch (err) {
+        console.error(err);
+        return res.status(400).json({ error: 'Error fetching statistics ' });
     }
 };
 
@@ -102,7 +108,8 @@ module.exports = {
     viewerPage,
     makeTweet,
     getTweets,
-    getStats,
+    updateTweet,
     viewTweets,
     getUsers,
+    getStats,
 };

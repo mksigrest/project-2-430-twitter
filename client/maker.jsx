@@ -60,7 +60,7 @@ const TweetList = (props) => {
     const tweetNodes = tweets.sort((a, b) => new Date(b.createdDate) - new Date(a.createdDate)).map(tweet => {
         return (
             <div key={tweet.id} className="tweet">
-                <h3 className="tweetTitle">Title: {tweet.title}</h3>
+                <h3 className="tweetTitle">Author: {tweet.title}</h3>
                 <h3 className="tweetContent">Content: {tweet.content}</h3>
                 <h3 className="tweetType">Type: {tweet.type}</h3>
                 <h3 className="tweetFeel">Feel: {tweet.feel}</h3>
@@ -106,7 +106,7 @@ const TweetForm = (props) => {
     );
 };
 
-const AccountForm = (props) => {
+const AccountForm = () => {
     const [account, setAccount] = useState(null);
     const [message, setMessage] = useState('');
 
