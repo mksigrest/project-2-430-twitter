@@ -36,33 +36,37 @@ const TweetView = ({ tweets, users }) => {
     );
 
     return (
-        <><h2>Registered Users</h2>
+        <><div id="registeredUsers">
+            <h2>Registered Users</h2>
             <ul>
                 {users.map((user) => (
-                <li key={user._id}>
-                    <label>
-                        <input
-                            type="checkbox"
-                            checked={selectedUsers.includes(user._id)}
-                            onChange={() => toggleUser(user._id)}/>
-                    {user.username}
-                    </label>
-                </li>))}
+                    <li key={user._id}>
+                        <label>
+                            <input
+                                type="checkbox"
+                                checked={selectedUsers.includes(user._id)}
+                                onChange={() => toggleUser(user._id)} />
+                            {user.username}
+                        </label>
+                    </li>))}
             </ul>
-        <h2>Sort by Quote feels</h2>
-            <ul>
-                {feels.map(feel => (
-                <li key={feel}>
-                    <label>
-                        <input
-                            type="checkbox"
-                            checked={selectedFeels.includes(feel)}
-                            onChange={() => toggleFeel(feel)}
-                        />
-                        {feel}
-                    </label>
-                </li>))}
-            </ul>
+        </div>
+            <div id="quoteFeels">
+                <h2>Sort by Quote feels</h2>
+                <ul>
+                    {feels.map(feel => (
+                        <li key={feel}>
+                            <label>
+                                <input
+                                    type="checkbox"
+                                    checked={selectedFeels.includes(feel)}
+                                    onChange={() => toggleFeel(feel)}
+                                />
+                                {feel}
+                            </label>
+                        </li>))}
+                </ul>
+            </div>
         <h2>Viewable Tweets</h2>
             <div className="tweetList">
                 {filteredTweets.length === 0 ? (
@@ -74,7 +78,7 @@ const TweetView = ({ tweets, users }) => {
                         <div key={tweet._id} className="tweet">
                             <h3 className="tweetTitle">Author: {tweet.title}</h3>
                             <h3 className="tweetContent">Content: {tweet.content}</h3>
-                            <h3 className="tweetOwner">Author: {getUserName(tweet.owner)}</h3>
+                                <h3 className="tweetOwner">Poste: {getUserName(tweet.owner)}</h3>
                             <h3 className="tweetFeel">Feel: {tweet.feel}</h3>
                         </div>
                     ))

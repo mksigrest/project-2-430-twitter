@@ -27,16 +27,7 @@
     box-shadow: 0 4px 8px rgba(0,0,0,0.5);
 }
 
-#tweetForm {
-    background-color: #43270f;
-    border: 1px solid #555;
-    border-radius: 12px;
-    padding: 15px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
-}
-
-#accountForm {
+#tweetForm, #accountForm, #registeredUsers, #quoteFeels {
     background-color: #43270f;
     border: 1px solid #555;
     border-radius: 12px;
@@ -115,15 +106,15 @@ nav:nth-child(1) {
     font-size: 1.2em;
     width: 100px;
     border-radius: 2px;
-    border-color: #66acee;
+    border-color: black;
     padding: 3px 0px;
-    color: white;
+    color: #2b1700;
     text-decoration: none;
 }
 
-.formSubmit:link, .formSubmit:visited, .formSubmit:hover, .formSubmit:active {
-    color: white;
-}
+    .formSubmit:link, .formSubmit:visited, .formSubmit:hover, .formSubmit:active {
+        color: #622a0f;
+    }
 
 .formSubmit:hover {
     transition: background-color 0.4s ease;
@@ -136,6 +127,6 @@ nav:nth-child(1) {
 #errorMessage {
     font-size: 1.2em;
     font-weight: bold;
-    color: red;
+    color: black;
     font-style: italic;
 }
