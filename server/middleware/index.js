@@ -4,7 +4,7 @@ const requiresLogin = (req, res, next) => {
             req.headers.acccept &&
             req.headers.accept.includes('application/json');
         if (json) {
-
+            return res.status(401).json({ error: 'Not logged in' });
         }
         return res.redirect('/');
     }
