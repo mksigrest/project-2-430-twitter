@@ -59,14 +59,18 @@ const TweetList = (props) => {
         setValFeel(tweet.feel);
     };
 
-    const saveVal = (tweetId) => {
-        helper.sendPost('/updateTweet', {
+    const saveVal = async (tweetId) => {
+        await helper.sendPost('/updateTweet', {
             id: tweetId,
             type: valType,
             feel: valFeel,
         }, props.onUpdated);
         setValId(null);
-    }
+
+        const response = await fetch('/getTweets');
+        const data = await response.json();
+        setTweets(data.tweets);
+    };
 
     if (tweets.length === 0) {
         return (
@@ -82,13 +86,13 @@ const TweetList = (props) => {
                 <h3 className="tweetContent">Content: {tweet.content}</h3>
                 {valId === tweet._id ? (
                     <div>
-                        <label>Type:</label>
-                        <select value={valType} onChange={(e) => setValType(e.target.value)}>
+                        <label htmlFor="editType">Type:</label>
+                        <select id="editType" name="editType" value={valType} onChange={(e) => setValType(e.target.value)}>
                             <option value="public">Public</option>
                             <option value="private">Private</option>
                         </select>
-                        <label>Feel:</label>
-                        <select value={valFeel} onChange={(e) => setValFeel(e.target.value)}>
+                        <label htmlFor="editFeel">Feel:</label>
+                        <select id="editFeel" name="editFeel" value={valFeel} onChange={(e) => setValFeel(e.target.value)}>
                             <option value="Happy">Happy</option>
                             <option value="Sad">Sad</option>
                             <option value="Funny">Funny</option>
@@ -124,16 +128,16 @@ const TweetForm = (props) => {
             className="tweetForm"
         >
             <h3>Create Quote:</h3>
-            <label htmlFor="title">Author: </label>
+            <label htmlFor="tweetTitle">Author: </label>
             <input id="tweetTitle" type="text" name="title" placeholder="Quote Author" />
-            <label htmlFor="content">Content: </label>
+            <label htmlFor="tweetContent">Content: </label>
             <input id="tweetContent" type="text" name="content" placeholder="Quote Content" />
-            <label htmlFor="type">Type: </label>
+            <label htmlFor="tweetType">Type: </label>
             <select id="tweetType" name="type">
                 <option value="public">Public</option>
                 <option value="private">Private</option>
             </select>
-            <label htmlFor="feel">Feel: </label>
+            <label htmlFor="tweetFeel">Feel: </label>
             <select id="tweetFeel" name="feel">
                 <option value="Happy">Happy</option>
                 <option value="Sad">Sad</option>
@@ -171,14 +175,14 @@ const AccountForm = () => {
             <h3>Change Password:</h3>
 
             <form id="accountForm" onSubmit={handleChangePassword} method="POST">
-                <label>Current Password:</label>
-                <input type="text" name="curPass" placeholder="Old Password" />
+                <label htmlFor="curPass">Current Password:</label>
+                <input type="text" id="curPass" name="curPass" placeholder="Old Password" />
 
-                <label>New Password:</label>
-                <input type="text" name="pass" placeholder="New Password" />
+                <label htmlFor="pass">New Password:</label>
+                <input type="text" id="pass" name="pass" placeholder="New Password" />
 
-                <label>ReEnter New Password:</label>
-                <input type="text" name="pass2" placeholder="Re-enter New Password" />
+                <label htmlFor="pass2">ReEnter New Password:</label>
+                <input type="text" id="pass2" name="pass2" placeholder="Re-enter New Password" />
 
                 <input type="submit" value="Update Password" />
             </form>
