@@ -66,11 +66,9 @@ const viewTweets = async (req, res) => {
 
 const updateTweet = async (req, res) => {
     try {
-        const query = {
-            id: req.body._id,
-            type: req.body.type,
-            feel: req.body.feel,
-        };
+        const id: req.body._id,
+        const type: req.body.type,
+        const feel: req.body.feel,
 
         const tweet = await Tweet.findOne({
             _id: id,
