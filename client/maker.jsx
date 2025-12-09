@@ -127,9 +127,9 @@ const TweetForm = (props) => {
         >
             <h1>Create Quote:</h1>
             <label htmlFor="tweetTitle">Author: </label>
-            <input id="tweetTitle" type="text" name="title" placeholder="Quote Author" />
+            <input id="tweetTitle" type="text" name="title" placeholder="Quote Author" /><br></br>
             <label htmlFor="tweetContent">Content: </label>
-            <input id="tweetContent" type="text" name="content" placeholder="Quote Content" />
+            <input id="tweetContent" type="text" name="content" placeholder="Quote Content" /><br></br>
             <label htmlFor="tweetType">Type: </label>
             <select id="tweetType" name="type">
                 <option value="public">Public</option>
@@ -140,7 +140,7 @@ const TweetForm = (props) => {
                 <option value="Happy">Happy</option>
                 <option value="Sad">Sad</option>
                 <option value="Funny">Funny</option>
-            </select>
+            </select><br></br>
             <input className="makeTweetSubmit" type="submit" value="Make Tweet" />
         </form>
     );
@@ -180,7 +180,7 @@ const AccountForm = () => {
                 <input type="text" id="pass" name="pass" placeholder="New Password" /><br></br>
 
                 <label htmlFor="pass2">Re-enter New Password:</label>
-                <input type="text" id="pass2" name="pass2" placeholder="Re-enter New Password" />
+                <input type="text" id="pass2" name="pass2" placeholder="Re-enter New Password" /><br></br>
 
                 <input type="submit" value="Update Password" />
             </form>
