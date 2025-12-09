@@ -60,6 +60,13 @@ redisClient.connect().then(() => {
 
     router(app);
 
+    app.use((req, res) => {
+        if (req.originalUrl.startsWith('/api') || req.headers.accept?.includes('application/json')) {
+            return res.status(404).json({ error: 'Not Found' });
+        }
+        return res.status(404).render('404');
+    });
+
     app.listen(port, (err) => {
         if (err) { throw err; }
         console.log(`Listening on port ${port}`);
