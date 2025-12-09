@@ -125,7 +125,7 @@ const TweetForm = (props) => {
             method="POST"
             className="tweetForm"
         >
-            <h3>Create Quote:</h3>
+            <h1>Create Quote:</h1>
             <label htmlFor="tweetTitle">Author: </label>
             <input id="tweetTitle" type="text" name="title" placeholder="Quote Author" />
             <label htmlFor="tweetContent">Content: </label>
@@ -169,15 +169,15 @@ const AccountForm = () => {
 
     return (
         <div className="accountForm">
-            <h2>Username: {account.username}</h2>
+            <h1>Username: {account.username}</h1>
             <h3>Change Password:</h3>
 
             <form id="accountForm" onSubmit={handleChangePassword} method="POST">
                 <label htmlFor="curPass">Current Password:</label>
-                <input type="text" id="curPass" name="curPass" placeholder="Old Password" />
+                <input type="text" id="curPass" name="curPass" placeholder="Old Password" /><br></br>
 
                 <label htmlFor="pass">New Password:</label>
-                <input type="text" id="pass" name="pass" placeholder="New Password" />
+                <input type="text" id="pass" name="pass" placeholder="New Password" /><br></br>
 
                 <label htmlFor="pass2">Re-enter New Password:</label>
                 <input type="text" id="pass2" name="pass2" placeholder="Re-enter New Password" />
@@ -193,7 +193,7 @@ const App = () => {
     const [reloadTweets, setReloadTweets] = useState(false);
 
     return (
-        <div>
+        <div id="LRGrid">
             <div id="markerLeft">
                 <div id="makeTweet">
                     <TweetForm triggerReload={() => setReloadTweets(!reloadTweets)} />

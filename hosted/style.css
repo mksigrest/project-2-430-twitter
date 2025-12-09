@@ -1,21 +1,12 @@
 #app {
-    display: grid;
-    grid-template-columns: 1fr 300px;
     padding: 20px;
     gap: 30px;
     align-items: start;
 }
 
-/*Account Form CSS*/
-#markerLeft {
-    float: left;
-    width: 70%;
-    margin-right: 30px;
-}
-
-#accountRight {
-    float: right;
-    width: 300px;
+#LRGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 html, body {
@@ -114,14 +105,14 @@ nav:nth-child(1) {
     background-color: #338acc;
 }
 
-#user, #pass, #pass2 {
+#user, #pass, #pass2, #oldPass {
     text-align: center;
     font-size: 1.1em;
     width: 180px;
     border-radius: 6px;
 }
 
-#user:focus, #pass:focus, #pass2:focus {
+#user:focus, #pass:focus, #pass2:focus, #oldPass:focus {
     outline: none;
     box-shadow: 0px 0px 1px 1px #55acee;
 }
