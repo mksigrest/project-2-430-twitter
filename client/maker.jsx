@@ -149,6 +149,7 @@ const TweetForm = (props) => {
 const AccountForm = () => {
     const [account, setAccount] = useState(null);
     const [message, setMessage] = useState('');
+    const [isPremium, setIsPremium] = React.useState(false);
 
     useEffect(() => {
         fetch('/getAccount')
@@ -168,7 +169,7 @@ const AccountForm = () => {
     if (!account) return <div>Loading account!</div>;
 
     return (
-        <div id="accountForm">
+        <><div id="accountForm">
             <h1>Username: {account.username}</h1>
             <h3>Change Password:</h3>
 
@@ -185,7 +186,23 @@ const AccountForm = () => {
                 <input type="submit" value="Update Password" />
             </form>
             <p>{message}</p>
-        </div>
+        </div><div>
+                {!isPremium && (
+                    <div class="addSpotFree">
+                        <h2>Advertisement HERE!</h2>
+                        <button onClick={() => setIsPremium(true)}>
+                            Go Premium
+                        </button>
+                    </div>
+                )}
+                {isPremium && (
+                    <div class="addSpotPremium">
+                        <button onClick={() => setIsPremium(false)}>
+                            Leave Premium
+                        </button>
+                    </div>
+                )}
+            </div></>
     )
 };
 

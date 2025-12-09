@@ -13,7 +13,7 @@
     grid-template-columns: 1fr 1fr;
 }
 
-#makerRight, #viewerRight {
+#makerRight {
     display: flex;
     justify-content: center;
 }
@@ -29,6 +29,24 @@
 
 #tweetForm, #accountForm, #registeredUsers, #quoteFeels {
     background-color: #43270f;
+    border: 1px solid #555;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+}
+
+.addSpotPremium {
+    background-color: #43270f;
+    border: 1px solid #555;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+}
+
+.addSpotFree {
+    background-color: #ff6fff;
     border: 1px solid #555;
     border-radius: 12px;
     padding: 15px;

@@ -88,9 +88,9 @@ const TweetView = ({ tweets, users }) => {
                             </li>))}
                     </ul>
                 </div>
-                <div className="addSpot">
+                <div>
                     {!isPremium && (
-                        <div>
+                        <div class="addSpotFree">
                             <h2>Advertisement HERE!</h2>
                             <button onClick={() => setIsPremium(true)}>
                                 Go Premium
@@ -98,7 +98,7 @@ const TweetView = ({ tweets, users }) => {
                         </div>
                     )}
                     {isPremium && (
-                        <div>
+                        <div class="addSpotPremium">
                             <button onClick={() => setIsPremium(false)}>
                                 Leave Premium
                             </button>
