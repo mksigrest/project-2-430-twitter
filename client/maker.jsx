@@ -33,6 +33,7 @@ const TweetStats = (props) => {
     return (
         <div className="stats">
             <h3>Total Tweets: {stats.totalTweets}</h3>
+            <h3>-------------------------------------------------</h3>
         </div>
     )
 }
