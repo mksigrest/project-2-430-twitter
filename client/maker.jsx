@@ -31,9 +31,8 @@ const TweetStats = (props) => {
     }, [props.triggerReload]);
 
     return (
-        <div className="stats">
+        <div className="stats leftContent">
             <h3>Total Tweets: {stats.totalTweets}</h3>
-            <h3>-------------------------------------------------</h3>
         </div>
     )
 }
@@ -81,7 +80,7 @@ const TweetList = (props) => {
 
     const tweetNodes = tweets.sort((a, b) => new Date(b.createdDate) - new Date(a.createdDate)).map(tweet => {
         return (
-            <div key={tweet.id} className="tweet">
+            <div key={tweet.id} className="tweet leftContent">
                 <h3 className="tweetTitle">Author: {tweet.title}</h3>
                 <h3 className="tweetContent">Content: {tweet.content}</h3>
                 {valId === tweet._id ? (
@@ -106,7 +105,6 @@ const TweetList = (props) => {
                         <button onClick={() => startVal(tweet)}>Edit</button>
                     </div>
                 )}
-                <h3>-------------------------------------------------</h3>
             </div>
         );
     });
@@ -125,7 +123,7 @@ const TweetForm = (props) => {
             name="tweetForm"
             action="/maker"
             method="POST"
-            className="tweetForm"
+            className="tweetForm leftContent"
         >
             <h3>Create Quote:</h3>
             <label htmlFor="tweetTitle">Author: </label>
@@ -170,8 +168,8 @@ const AccountForm = () => {
     if (!account) return <div>Loading account!</div>;
 
     return (
-        <div className="accountForm">
-            <h3>Username: {account.username}</h3>
+        <div className="accountForm rightContent">
+            <h2>Username: {account.username}</h2>
             <h3>Change Password:</h3>
 
             <form id="accountForm" onSubmit={handleChangePassword} method="POST">

@@ -1,6 +1,6 @@
 #app {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: flex-start;
     padding: 20px;
     gap: 30px;
@@ -132,16 +132,22 @@ nav:nth-child(1) {
 }
 
 /*Account Form CSS*/
-.tweetForm {
+.leftContent {
     background-color: #895129;
     border-radius: 12px;
     padding: 20px;
     border: 1px solid #333;
+    width: 700px;
+
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
-.accountForm {
+.rightContent {
     background-color: #895129;
     border-radius: 12px;
     padding: 20px;
-    width: 300px;
     border: 1px solid #333;
+    width: 300px;
+    flex: 2;
 }
