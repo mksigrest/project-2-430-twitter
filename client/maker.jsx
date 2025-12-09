@@ -76,6 +76,14 @@ const TweetList = (props) => {
             <div key={tweet.id} className="tweet">
                 <h3 className="tweetTitle">Author: {tweet.title}</h3>
                 <h3 className="tweetContent">Content: {tweet.content}</h3>
+                {editingId === tweet._id ? (
+                    <div>
+                        <label>Type:</label>
+                        <select>
+                            
+                        </select>
+                    </div>
+                ) }
                 <h3 className="tweetType">Type: {tweet.type}</h3>
                 <h3 className="tweetFeel">Feel: {tweet.feel}</h3>
                 <h3>-------------------------------------------------</h3>
