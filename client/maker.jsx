@@ -106,6 +106,14 @@ const TweetForm = (props) => {
 };
 
 const AccountForm = (props) => {
+    const [account, setAccount] = useState(null);
+    const [message, setMessage] = useState('');
+
+    useEffect(() => {
+        fetch('/getAccount')
+            
+    })
+
     return (
         <div className="accountForm">
             <h3>{username}</h3>
