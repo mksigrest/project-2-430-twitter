@@ -194,7 +194,7 @@ const App = () => {
 
     return (
         <div>
-            <div id="leftContent">
+            <div id="markerLeft">
                 <div id="makeTweet">
                     <TweetForm triggerReload={() => setReloadTweets(!reloadTweets)} />
                 </div>
@@ -205,7 +205,7 @@ const App = () => {
                     <TweetList tweets={[]} reloadTweets={reloadTweets} />
                 </div>
             </div>
-            <div id="rightContent">
+            <div id="accountRight">
                 <div id="changePassword">
                     <AccountForm />
                 </div>
