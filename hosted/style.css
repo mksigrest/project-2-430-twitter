@@ -149,5 +149,8 @@ nav:nth-child(1) {
     padding: 20px;
     border: 1px solid #333;
     width: 300px;
+
+    display: flex;
+    flex-direction: column;
     flex: 2;
 }
