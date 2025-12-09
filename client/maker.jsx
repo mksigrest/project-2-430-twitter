@@ -168,7 +168,7 @@ const AccountForm = () => {
     if (!account) return <div>Loading account!</div>;
 
     return (
-        <div className="accountForm">
+        <div id="accountForm">
             <h1>Username: {account.username}</h1>
             <h3>Change Password:</h3>
 
