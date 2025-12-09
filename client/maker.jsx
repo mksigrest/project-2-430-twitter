@@ -160,6 +160,9 @@ const App = () => {
 
     return (
         <div>
+            <div>
+                
+            </div>
             <div id="makeTweet">
                 <TweetForm triggerReload={() => setReloadTweets(!reloadTweets)} />
             </div>
