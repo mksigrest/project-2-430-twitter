@@ -87,13 +87,13 @@ const TweetList = (props) => {
                             <option value="public">Public</option>
                             <option value="private">Private</option>
                         </select>
-                        <button onClick={() => saveVal(tweet._id)}>Save Changes</button>
                         <label>Feel:</label>
                         <select value={valFeel} onChange={(e) => setValFeel(e.target.value)}>
                             <option value="Happy">Happy</option>
                             <option value="Sad">Sad</option>
                             <option value="Funny">Funny</option>
                         </select>
+                        <button onClick={() => saveVal(tweet._id)}>Save Changes</button>
                     </div>
                 ) : (
                     <div>
