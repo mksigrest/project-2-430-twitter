@@ -1,3 +1,7 @@
+/* eslint-disable linebreak-style */
+/* eslint-disable prefer-destructuring */
+/* eslint-disable indent */
+/* eslint-disable arrow-body-style */
 const models = require('../models');
 const Tweet = models.Tweet;
 const Account = models.Account;
@@ -18,7 +22,14 @@ const makeTweet = async (req, res) => {
     try {
         const newTweet = new Tweet(tweetData);
         await newTweet.save();
-        return res.status(201).json({ title: newTweet.title, content: newTweet.content, type: newTweet.type, feel: newTweet.feel, owner: newTweet.owner, createdDate: newTweet.createdDate });
+        return res.status(201).json({
+            title: newTweet.title,
+            content: newTweet.content,
+            type: newTweet.type,
+            feel: newTweet.feel,
+            owner: newTweet.owner,
+            createdDate: newTweet.createdDate,
+        });
     } catch (err) {
         console.log(err);
         if (err.code === 11000) {
@@ -75,7 +86,7 @@ const getUsers = async (req, res) => {
         console.error(err);
         return res.status(500).json({ error: 'Error finding users' });
     }
-}
+};
 
 const makerPage = (req, res) => {
     return res.render('app');

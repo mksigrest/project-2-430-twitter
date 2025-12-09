@@ -1,6 +1,5 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable arrow-body-style */
-/* eslint-disable linebreak-style */
 const Account = require('../models/Account');
 
 const loginPage = (req, res) => {
