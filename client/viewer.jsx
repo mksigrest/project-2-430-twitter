@@ -2,6 +2,7 @@ const React = require('react');
 const { createRoot } = require('react-dom/client');
 
 const TweetView = ({ tweets, users }) => {
+    const [isPremium, setIsPremium] = React.useState(false);
     if (!tweets || tweets.length === 0) {
         return <h3>No Public Tweets!</h3>;
     }
@@ -37,21 +38,30 @@ const TweetView = ({ tweets, users }) => {
 
     return (
         <div id="LRGridViewer">
-            <div id="viewerRight" className="tweetList">
-                {filteredTweets.length === 0 ? (
-                    <h3>No tweets from selected users</h3>
-                ) : (
-                    [...filteredTweets]
-                        .sort((a, b) => new Date(b.createdDate) - new Date(a.createdDate))
-                        .map((tweet) => (
-                            <div key={tweet._id} className="tweet">
-                                <h3 className="tweetTitle">Author: {tweet.title}</h3>
-                                <h3 className="tweetContent">Content: {tweet.content}</h3>
-                                <h3 className="tweetOwner">Poster: {getUserName(tweet.owner)}</h3>
-                                <h3 className="tweetFeel">Feel: {tweet.feel}</h3>
-                            </div>
-                        ))
-                )}
+            <div id="viewerRight">
+                <div className="tweetList">
+                    {filteredTweets.length === 0 ? (
+                        <h3>No tweets from selected users</h3>
+                    ) : (
+                        [...filteredTweets]
+                            .sort((a, b) => new Date(b.createdDate) - new Date(a.createdDate))
+                            .map((tweet) => (
+                                <div key={tweet._id} className="tweet">
+                                    <h3 className="tweetTitle">Author: {tweet.title}</h3>
+                                    <h3 className="tweetContent">Content: {tweet.content}</h3>
+                                    <h3 className="tweetOwner">Poster: {getUserName(tweet.owner)}</h3>
+                                    <h3 className="tweetFeel">Feel: {tweet.feel}</h3>
+                                </div>
+                            ))
+                    )}
+                </div>
+                <div className="addSpot">
+                    {!isPremium && (
+                        <div>
+                            <h2>Advertisement HERE!</h2>
+                        </div>
+                    )}
+                </div>
             </div>
             <div id="viewerLeft">
                 <div id="registeredUsers">
@@ -70,7 +80,7 @@ const TweetView = ({ tweets, users }) => {
                     </ul>
                 </div>
                 <div id="quoteFeels">
-                    <h2>Sort by Quote feels</h2>
+                    <h2>Sort by Quote Feels</h2>
                     <ul>
                         {feels.map(feel => (
                             <li key={feel}>
