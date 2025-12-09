@@ -80,7 +80,8 @@ const TweetList = (props) => {
                     <div>
                         <label>Type:</label>
                         <select>
-                            
+                            <option value="public">Public</option>
+                            <option value="private">Private</option>
                         </select>
                     </div>
                 ) }
