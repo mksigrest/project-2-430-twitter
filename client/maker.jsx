@@ -55,7 +55,7 @@ const TweetList = (props) => {
         setValFeel(tweet.feel);
     };
 
-    const saveVal = (tweet._id) => {
+    const saveVal = (tweetId) => {
         helper.sendPost('/updateTweet', {
             id: tweetId,
             type: editType,
