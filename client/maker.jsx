@@ -79,9 +79,15 @@ const TweetList = (props) => {
                 {editingId === tweet._id ? (
                     <div>
                         <label>Type:</label>
-                        <select>
+                        <select value={editType} onChange={(e) => setValType(e.target.value)}>
                             <option value="public">Public</option>
                             <option value="private">Private</option>
+                        </select>
+                        <label>Feel:</label>
+                        <select value={editFeel} onChange={(e) => setValFeel(e.target.value)}>
+                            <option value="Happy">Happy</option>
+                            <option value="Sad">Sad</option>
+                            <option value="Funny">Funny</option>
                         </select>
                     </div>
                 ) }
