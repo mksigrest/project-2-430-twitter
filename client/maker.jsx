@@ -143,6 +143,7 @@ const AccountForm = (props) => {
 
                 <input type="submit" value="Update Password" />
             </form>
+            <p>{message}</p>
         </div>
     )
 };
