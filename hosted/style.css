@@ -132,5 +132,8 @@ nav:nth-child(1) {
 }
 
 .accountForm {
-
+    background-color: #895129;
+    border-radius: 12px;
+    padding: 20px;
+    width: 300px;
 }
