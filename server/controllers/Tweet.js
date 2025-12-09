@@ -66,7 +66,11 @@ const viewTweets = async (req, res) => {
 
 const updateTweet = async (req, res) => {
     try {
-
+        const query = {
+            id: req.body._id,
+            type: req.body.type,
+            feel: req.body.feel,
+        };
     }
 };
 
