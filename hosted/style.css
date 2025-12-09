@@ -6,6 +6,26 @@
     gap: 30px;
 }
 
+/*Account Form CSS*/
+.leftContent {
+    flex: 1;
+    background-color: #895129;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #333;
+    max-width: 700px;
+    flex-direction: column;
+    display: flex;
+}
+
+.rightContent {
+    background-color: #895129;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #333;
+    width: 300px;
+}
+
 html, body {
     height: 100%;
     width: 100%;
@@ -129,28 +149,4 @@ nav:nth-child(1) {
     font-weight: bold;
     color: red;
     font-style: italic;
-}
-
-/*Account Form CSS*/
-.leftContent {
-    background-color: #895129;
-    border-radius: 12px;
-    padding: 20px;
-    border: 1px solid #333;
-    width: 700px;
-
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-.rightContent {
-    background-color: #895129;
-    border-radius: 12px;
-    padding: 20px;
-    border: 1px solid #333;
-    width: 300px;
-
-    display: flex;
-    flex-direction: column;
-    flex: 2;
 }

@@ -31,7 +31,7 @@ const TweetStats = (props) => {
     }, [props.triggerReload]);
 
     return (
-        <div className="stats leftContent">
+        <div className="stats">
             <h3>Total Tweets: {stats.totalTweets}</h3>
         </div>
     )
@@ -80,7 +80,7 @@ const TweetList = (props) => {
 
     const tweetNodes = tweets.sort((a, b) => new Date(b.createdDate) - new Date(a.createdDate)).map(tweet => {
         return (
-            <div key={tweet.id} className="tweet leftContent">
+            <div key={tweet.id} className="tweet">
                 <h3 className="tweetTitle">Author: {tweet.title}</h3>
                 <h3 className="tweetContent">Content: {tweet.content}</h3>
                 {valId === tweet._id ? (
@@ -123,7 +123,7 @@ const TweetForm = (props) => {
             name="tweetForm"
             action="/maker"
             method="POST"
-            className="tweetForm leftContent"
+            className="tweetForm"
         >
             <h3>Create Quote:</h3>
             <label htmlFor="tweetTitle">Author: </label>
@@ -168,7 +168,7 @@ const AccountForm = () => {
     if (!account) return <div>Loading account!</div>;
 
     return (
-        <div className="accountForm rightContent">
+        <div className="accountForm">
             <h2>Username: {account.username}</h2>
             <h3>Change Password:</h3>
 
@@ -194,16 +194,16 @@ const App = () => {
 
     return (
         <div>
-            <div id="changePassword">
+            <div id="changePassword" className="rightContent">
                 <AccountForm />
             </div>
-            <div id="makeTweet">
+            <div id="makeTweet" className="leftContent">
                 <TweetForm triggerReload={() => setReloadTweets(!reloadTweets)} />
             </div>
-            <div id="tweetStats">
+            <div id="tweetStats" className="leftContent">
                 <TweetStats triggerReload={reloadTweets} />
             </div>
-            <div id="tweets">
+            <div id="tweets" className="leftContent">
                 <TweetList tweets={[]} reloadTweets={reloadTweets} />
             </div>
         </div>
