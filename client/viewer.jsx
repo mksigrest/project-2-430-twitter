@@ -38,9 +38,8 @@ const TweetView = ({ tweets, users }) => {
     return (
         <div id="LRGridViewer">
             <div id="viewerRight" className="tweetList">
-                <h2>Viewable Tweets</h2>
                 {filteredTweets.length === 0 ? (
-                    <h3>No tweets from selected users</>
+                    <h3>No tweets from selected users</h3>
                 ) : (
                     [...filteredTweets]
                         .sort((a, b) => new Date(b.createdDate) - new Date(a.createdDate))
@@ -48,7 +47,7 @@ const TweetView = ({ tweets, users }) => {
                             <div key={tweet._id} className="tweet">
                                 <h3 className="tweetTitle">Author: {tweet.title}</h3>
                                 <h3 className="tweetContent">Content: {tweet.content}</h3>
-                                <h3 className="tweetOwner">Poste: {getUserName(tweet.owner)}</h3>
+                                <h3 className="tweetOwner">Poster: {getUserName(tweet.owner)}</h3>
                                 <h3 className="tweetFeel">Feel: {tweet.feel}</h3>
                             </div>
                         ))
