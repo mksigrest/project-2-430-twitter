@@ -180,7 +180,7 @@ const AccountForm = () => {
                 <input type="text" id="pass" name="pass" placeholder="New Password" /><br></br>
 
                 <label htmlFor="pass2">Re-enter New Password:</label>
-                <input type="text" id="pass2" name="pass2" placeholder="Re-enter New Password" /><br></br>
+                <input type="text" id="pass2" name="pass2" placeholder="New Password" /><br></br>
 
                 <input type="submit" value="Update Password" />
             </form>
@@ -193,8 +193,8 @@ const App = () => {
     const [reloadTweets, setReloadTweets] = useState(false);
 
     return (
-        <div id="LRGrid">
-            <div id="markerLeft">
+        <div id="LRGridMaker">
+            <div id="makerLeft">
                 <div id="makeTweet">
                     <TweetForm triggerReload={() => setReloadTweets(!reloadTweets)} />
                 </div>
@@ -205,7 +205,7 @@ const App = () => {
                     <TweetList tweets={[]} reloadTweets={reloadTweets} />
                 </div>
             </div>
-            <div id="accountRight">
+            <div id="makerRight">
                 <div id="changePassword">
                     <AccountForm />
                 </div>
