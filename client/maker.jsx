@@ -124,6 +124,8 @@ const AccountForm = (props) => {
         }, () => setMessage('Password updated!'));
     };
 
+    if (!account) return <div>Loading account!</div>;
+
     return (
         <div className="accountForm">
             <h3>Username: {account.username}</h3>
