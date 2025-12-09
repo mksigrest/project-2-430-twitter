@@ -39,6 +39,9 @@ const TweetStats = (props) => {
 
 const TweetList = (props) => {
     const [tweets, setTweets] = useState(props.tweets);
+    const [editingId, setEditingId] = useState(null);
+    const [valType, setValType] = useState("public");
+    const [valFeel, setValFeel] = useState("Happy");
 
     useEffect(() => {
         const loadTweetsFromServer = async () => {
