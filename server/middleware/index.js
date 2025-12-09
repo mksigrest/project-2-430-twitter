@@ -1,7 +1,7 @@
 const requiresLogin = (req, res, next) => {
     if (!req.session.account) {
         const json =
-            req.headers.acccept &&
+            req.headers.accept &&
             req.headers.accept.includes('application/json');
         if (json) {
             return res.status(401).json({ error: 'Not logged in' });
