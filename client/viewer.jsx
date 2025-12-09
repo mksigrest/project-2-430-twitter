@@ -36,55 +36,58 @@ const TweetView = ({ tweets, users }) => {
     );
 
     return (
-        <><div id="registeredUsers">
-            <h2>Registered Users</h2>
-            <ul>
-                {users.map((user) => (
-                    <li key={user._id}>
-                        <label>
-                            <input
-                                type="checkbox"
-                                checked={selectedUsers.includes(user._id)}
-                                onChange={() => toggleUser(user._id)} />
-                            {user.username}
-                        </label>
-                    </li>))}
-            </ul>
-        </div>
-            <div id="quoteFeels">
-                <h2>Sort by Quote feels</h2>
-                <ul>
-                    {feels.map(feel => (
-                        <li key={feel}>
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    checked={selectedFeels.includes(feel)}
-                                    onChange={() => toggleFeel(feel)}
-                                />
-                                {feel}
-                            </label>
-                        </li>))}
-                </ul>
-            </div>
-        <h2>Viewable Tweets</h2>
-            <div className="tweetList">
+        <div id="LRGridViewer">
+            <div id="viewerRight" className="tweetList">
+                <h2>Viewable Tweets</h2>
                 {filteredTweets.length === 0 ? (
-                    <h3>No tweets from selected users</h3>
+                    <h3>No tweets from selected users</>
                 ) : (
                     [...filteredTweets]
                         .sort((a, b) => new Date(b.createdDate) - new Date(a.createdDate))
                         .map((tweet) => (
-                        <div key={tweet._id} className="tweet">
-                            <h3 className="tweetTitle">Author: {tweet.title}</h3>
-                            <h3 className="tweetContent">Content: {tweet.content}</h3>
+                            <div key={tweet._id} className="tweet">
+                                <h3 className="tweetTitle">Author: {tweet.title}</h3>
+                                <h3 className="tweetContent">Content: {tweet.content}</h3>
                                 <h3 className="tweetOwner">Poste: {getUserName(tweet.owner)}</h3>
-                            <h3 className="tweetFeel">Feel: {tweet.feel}</h3>
-                        </div>
-                    ))
+                                <h3 className="tweetFeel">Feel: {tweet.feel}</h3>
+                            </div>
+                        ))
                 )}
             </div>
-        </>
+            <div id="viewerLeft">
+                <div id="registeredUsers">
+                    <h2>Registered Users</h2>
+                    <ul>
+                        {users.map((user) => (
+                            <li key={user._id}>
+                                <label>
+                                    <input
+                                        type="checkbox"
+                                        checked={selectedUsers.includes(user._id)}
+                                        onChange={() => toggleUser(user._id)} />
+                                    {user.username}
+                                </label>
+                            </li>))}
+                    </ul>
+                </div>
+                <div id="quoteFeels">
+                    <h2>Sort by Quote feels</h2>
+                    <ul>
+                        {feels.map(feel => (
+                            <li key={feel}>
+                                <label>
+                                    <input
+                                        type="checkbox"
+                                        checked={selectedFeels.includes(feel)}
+                                        onChange={() => toggleFeel(feel)}
+                                    />
+                                    {feel}
+                                </label>
+                            </li>))}
+                    </ul>
+                </div>
+            </div>
+        </div>
     );
 };
 

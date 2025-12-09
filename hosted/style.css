@@ -8,7 +8,7 @@
     background-color: #997950;
 }
 
-#LRGridMaker {
+#LRGridMaker, #LRGridViewer {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
