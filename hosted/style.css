@@ -131,9 +131,17 @@ nav:nth-child(1) {
     font-style: italic;
 }
 
+/*Account Form CSS*/
+.tweetForm {
+    background-color: #895129;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #333;
+}
 .accountForm {
     background-color: #895129;
     border-radius: 12px;
     padding: 20px;
     width: 300px;
+    border: 1px solid #333;
 }

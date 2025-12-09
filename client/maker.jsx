@@ -181,7 +181,7 @@ const AccountForm = () => {
                 <label htmlFor="pass">New Password:</label>
                 <input type="text" id="pass" name="pass" placeholder="New Password" />
 
-                <label htmlFor="pass2">ReEnter New Password:</label>
+                <label htmlFor="pass2">Re-enter New Password:</label>
                 <input type="text" id="pass2" name="pass2" placeholder="Re-enter New Password" />
 
                 <input type="submit" value="Update Password" />
