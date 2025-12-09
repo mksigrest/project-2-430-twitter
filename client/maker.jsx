@@ -194,17 +194,21 @@ const App = () => {
 
     return (
         <div>
-            <div id="changePassword" className="rightContent">
-                <AccountForm />
+            <div id="leftContent">
+                <div id="makeTweet">
+                    <TweetForm triggerReload={() => setReloadTweets(!reloadTweets)} />
+                </div>
+                <div id="tweetStats">
+                    <TweetStats triggerReload={reloadTweets} />
+                </div>
+                <div id="tweets">
+                    <TweetList tweets={[]} reloadTweets={reloadTweets} />
+                </div>
             </div>
-            <div id="makeTweet" className="leftContent">
-                <TweetForm triggerReload={() => setReloadTweets(!reloadTweets)} />
-            </div>
-            <div id="tweetStats" className="leftContent">
-                <TweetStats triggerReload={reloadTweets} />
-            </div>
-            <div id="tweets" className="leftContent">
-                <TweetList tweets={[]} reloadTweets={reloadTweets} />
+            <div id="rightContent">
+                <div id="changePassword">
+                    <AccountForm />
+                </div>
             </div>
         </div>
     );
