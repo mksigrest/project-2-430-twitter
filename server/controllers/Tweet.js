@@ -84,7 +84,7 @@ const updateTweet = async (req, res) => {
 
         await tweet.save();
         return res.json({ message: "Tweet updated!", tweet });
-    } catch {
+    } catch (err) {
         console.error(err);
         return res.status(500).json({ error: "Error tweet update" });
     }
