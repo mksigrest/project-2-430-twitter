@@ -49,11 +49,16 @@ const TweetList = (props) => {
         loadTweetsFromServer();
     }, [props.reloadTweets]);
 
+    const startVal = (tweet) => {
+        setValId(tweet._id);
+        setValType(tweet.type);
+        setValFeel(tweet.feel);
+    };
+
     if (tweets.length === 0) {
         return (
             <div className="tweetList">
-                <h3 className="emptyTweet">No Tweets Yet!</h3>
-            </div>
+                <h3 className="emptyTweet">No Tweets Yet!</h3></div>
         );
     }
 
