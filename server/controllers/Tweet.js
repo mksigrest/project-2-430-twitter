@@ -71,6 +71,15 @@ const updateTweet = async (req, res) => {
             type: req.body.type,
             feel: req.body.feel,
         };
+
+        const tweet = await Tweet.findOne({
+            _id: id,
+            owner: req.session.account._id
+        });
+
+        if (!tweet) { return res.status(404).json({ error: "Tweet not found" }); }
+
+
     }
 };
 
