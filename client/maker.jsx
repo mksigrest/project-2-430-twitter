@@ -111,8 +111,18 @@ const AccountForm = (props) => {
 
     useEffect(() => {
         fetch('/getAccount')
-            
-    })
+            .then(res => res.json())
+            .then(data => setAccount(data.account));
+    }, []);
+
+    const handleChangePassword = (e) => {
+        e.preventDefault();
+        helper.sendPost('/changePassword', {
+            curPass: e.target.curPass.value,
+            pass: e.target.pass.value,
+            pass2: e.target.pass2.value
+        }, () => setMessage('Password updated!'));
+    };
 
     return (
         <div className="accountForm">
