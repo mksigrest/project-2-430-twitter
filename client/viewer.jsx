@@ -38,7 +38,7 @@ const TweetView = ({ tweets, users }) => {
 
     return (
         <div id="LRGridViewer">
-            <div id="viewerRight">
+            <div id="viewerLeft">
                 <div className="tweetList">
                     {filteredTweets.length === 0 ? (
                         <h3>No tweets from selected users</h3>
@@ -55,15 +55,8 @@ const TweetView = ({ tweets, users }) => {
                             ))
                     )}
                 </div>
-                <div className="addSpot">
-                    {!isPremium && (
-                        <div>
-                            <h2>Advertisement HERE!</h2>
-                        </div>
-                    )}
-                </div>
             </div>
-            <div id="viewerLeft">
+            <div id="viewerRight">
                 <div id="registeredUsers">
                     <h2>Registered Users</h2>
                     <ul>
@@ -94,6 +87,23 @@ const TweetView = ({ tweets, users }) => {
                                 </label>
                             </li>))}
                     </ul>
+                </div>
+                <div className="addSpot">
+                    {!isPremium && (
+                        <div>
+                            <h2>Advertisement HERE!</h2>
+                            <button onClick={() => setIsPremium(true)}>
+                                Go Premium
+                            </button>
+                        </div>
+                    )}
+                    {isPremium && (
+                        <div>
+                            <button onClick={() => setIsPremium(false)}>
+                                Leave Premium
+                            </button>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
