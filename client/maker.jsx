@@ -130,10 +130,16 @@ const AccountForm = (props) => {
         <div className="accountForm">
             <h3>Username: {account.username}</h3>
             <h3>Change Password:</h3>
+
             <form id="accountForm" onSubmit={handleChangePassword} method="POST">
-                <label>Curr Pass</label>
-                <label>New Pass</label>
-                <label>ReEnter New Pass</label>
+                <label>Current Password:</label>
+                <input type="password" name="curPass" />
+
+                <label>New Password:</label>
+                <input type="password" name="pass" />
+
+                <label>ReEnter New Password:</label>
+                <input type="password" name="pass2" />
             </form>
         </div>
     )
