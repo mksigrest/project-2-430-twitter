@@ -31,12 +31,3 @@ if (process.env.NODE_ENV === 'production') {
 } else {
     module.exports.requiresSecure = bypassSecure;
 }
-
-/*
-const json =
-            req.headers.accept &&
-            req.headers.accept.includes('application/json');
-        if (json) {
-            return res.status(401).json({ error: 'Not logged in' });
-        }
-*/
