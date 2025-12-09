@@ -55,6 +55,15 @@ const TweetList = (props) => {
         setValFeel(tweet.feel);
     };
 
+    const saveVal = (tweet._id) => {
+        helper.sendPost('/updateTweet', {
+            id: tweetId,
+            type: editType,
+            feel: editFeel,
+        }, props.onUpdated);
+        setEditingId(null);
+    }
+
     if (tweets.length === 0) {
         return (
             <div className="tweetList">
