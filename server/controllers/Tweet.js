@@ -3,6 +3,7 @@
 /* eslint-disable indent */
 /* eslint-disable arrow-body-style */
 const models = require('../models');
+
 const Tweet = models.Tweet;
 const Account = models.Account;
 

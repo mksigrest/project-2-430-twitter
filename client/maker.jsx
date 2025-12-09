@@ -105,7 +105,7 @@ const TweetForm = (props) => {
     );
 };
 
-const AccountForm = (req, res, props) => {
+const AccountForm = (props) => {
     return (
         <div className="accountForm">
             <h3>{username}</h3>
