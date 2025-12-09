@@ -126,6 +126,7 @@ const AccountForm = (props) => {
 
     return (
         <div className="accountForm">
+            <h3>Username: {account.username}</h3>
             <h3>Change Password:</h3>
             <form id="accountForm" onSubmit={handleChangePassword} method="POST">
                 <label>Curr Pass</label>
