@@ -133,13 +133,15 @@ const AccountForm = (props) => {
 
             <form id="accountForm" onSubmit={handleChangePassword} method="POST">
                 <label>Current Password:</label>
-                <input type="password" name="curPass" />
+                <input type="text" name="curPass" />
 
                 <label>New Password:</label>
-                <input type="password" name="pass" />
+                <input type="text" name="pass" />
 
                 <label>ReEnter New Password:</label>
-                <input type="password" name="pass2" />
+                <input type="text" name="pass2" />
+
+                <input type="submit" value="Update Password" />
             </form>
         </div>
     )
