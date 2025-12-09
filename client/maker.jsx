@@ -85,6 +85,7 @@ const TweetForm = (props) => {
             method="POST"
             className="tweetForm"
         >
+            <h3>Create Quote:</h3>
             <label htmlFor="title">Title: </label>
             <input id="tweetTitle" type="text" name="title" placeholder="Tweet Title" />
             <label htmlFor="content">Content: </label>
