@@ -2,6 +2,9 @@
     padding: 20px;
     gap: 30px;
     align-items: start;
+}
+
+.body {
     background-color: #997950;
 }
 
@@ -17,6 +20,24 @@
 
 .tweet {
     background-color: #622a0f;
+    border: 1px solid #555;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+}
+
+#tweetForm {
+    background-color: #43270f;
+    border: 1px solid #555;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+}
+
+#accountForm {
+    background-color: #43270f;
     border: 1px solid #555;
     border-radius: 12px;
     padding: 15px;

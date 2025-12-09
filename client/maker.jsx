@@ -172,7 +172,7 @@ const AccountForm = () => {
             <h1>Username: {account.username}</h1>
             <h3>Change Password:</h3>
 
-            <form id="accountForm" onSubmit={handleChangePassword} method="POST">
+            <form onSubmit={handleChangePassword} method="POST">
                 <label htmlFor="curPass">Current Password:</label>
                 <input type="text" id="curPass" name="curPass" placeholder="Old Password" /><br></br>
 
