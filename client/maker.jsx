@@ -91,9 +91,13 @@ const TweetList = (props) => {
                             <option value="Funny">Funny</option>
                         </select>
                     </div>
-                ) }
-                <h3 className="tweetType">Type: {tweet.type}</h3>
-                <h3 className="tweetFeel">Feel: {tweet.feel}</h3>
+                ) : (
+                    <div>
+                        <h3>Type: {tweet.type}</h3>
+                        <h3>Feel: {tweet.feel}</h3>
+                        <button onClick={() => startVal(tweet)}>Edit</button>
+                    </div>
+                )}
                 <h3>-------------------------------------------------</h3>
             </div>
         );
