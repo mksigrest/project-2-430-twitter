@@ -140,7 +140,7 @@ const AccountForm = (props) => {
                 <input type="text" name="pass" placeholder="New Password" />
 
                 <label>ReEnter New Password:</label>
-                <input type="text" name="pass2" placeholder="ReEnter New Password" />
+                <input type="text" name="pass2" placeholder="Re-enter New Password" />
 
                 <input type="submit" value="Update Password" />
             </form>
