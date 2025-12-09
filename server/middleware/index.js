@@ -1,5 +1,11 @@
 const requiresLogin = (req, res, next) => {
     if (!req.session.account) {
+        const json =
+            req.headers.acccept &&
+            req.headers.accept.includes('application/json');
+        if (json) {
+
+        }
         return res.redirect('/');
     }
     return next();
