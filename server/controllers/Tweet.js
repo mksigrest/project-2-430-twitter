@@ -79,7 +79,14 @@ const updateTweet = async (req, res) => {
 
         if (!tweet) { return res.status(404).json({ error: "Tweet not found" }); }
 
+        tweet.type = type;
+        tweet.feel = feel;
 
+        await tweet.save();
+        return res.json({ message: "Tweet updated!", tweet });
+    } catch {
+        console.error(err);
+        return res.status(500).json({ error: "Error tweet update" });
     }
 };
 
