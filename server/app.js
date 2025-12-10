@@ -54,15 +54,20 @@ redisClient.connect().then(() => {
     app.set('views', `${__dirname}/../views`);
 
     router(app);
+
     //for 404 check
     app.use((req, res) => {
-        const accHead = req.headers?.accept ?? '';
-        const needJson = accHead.includes('application/json');
-
-        if (req.originalUrl.startsWith('/api') || needJson) {
-            return res.status(404).json({ error: 'Not Found' });
-        }
-        return res.status(404).render('error');
+        res.status(404).format({
+            'application/json': function () {
+                res.json({ error: 'Not Found' });
+            },
+            'text/html': function () {
+                res.render('error');
+            },
+            'default': function () {
+                res.type('txt').send('Not Found');
+            }
+        });
     });
 
     app.listen(port, (err) => {
