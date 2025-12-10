@@ -14,7 +14,7 @@ const redis = require('redis');
 const router = require('./router.js');
 
 const port = process.env.PORT || process.env.NODE_PORT || 3000;
-
+//setting up Mongo Connection
 const dbURI = process.env.MONGODB_URI || 'mongodb://localhost/project2-twitter' || 'mongodb://127.0.0.1/project2-twitter';
 mongoose.connect(dbURI).catch((err) => {
     if (err) {
@@ -22,13 +22,13 @@ mongoose.connect(dbURI).catch((err) => {
         throw err;
     }
 });
-
+//Setting up redis
 const redisClient = redis.createClient({
     url: process.env.REDISCLOUD_URL,
 });
 
 redisClient.on('error', err => console.log('Redis Client Error', err));
-
+//Redis connection
 redisClient.connect().then(() => {
     const app = express();
 
@@ -54,7 +54,7 @@ redisClient.connect().then(() => {
     app.set('views', `${__dirname}/../views`);
 
     router(app);
-
+    //for 404 check
     app.use((req, res) => {
         const accHead = req.headers && req.headers.accept ? req.headers.accept : '';
         const needJson = typeof accHead === 'string' && accHead.indexOf('application/json');
