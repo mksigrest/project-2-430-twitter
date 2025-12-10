@@ -1,3 +1,7 @@
+const knownRoutes = new Set([
+    '/login', '/logout', '/signup', '/maker', '/viewer', '/getTweets', '/getUsers', '/getStats', 'updateTweet', 'changePassword', '/getAccount', '/',]);
+const affectsAuthentication = (req) => knownRoutes.has(req.path);
+
 const requiresLogin = (req, res, next) => {
     if (!req.session.account) {
         return res.redirect('/');
