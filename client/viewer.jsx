@@ -1,17 +1,17 @@
 const React = require('react');
 const { createRoot } = require('react-dom/client');
-
+//handles all of the parts of the quote viewer
 const TweetView = ({ tweets, users }) => {
     const [isPremium, setIsPremium] = React.useState(false);
     if (!tweets || tweets.length === 0) {
         return <h3>No Public Tweets!</h3>;
     }
-
+    //finds name for selection
     const getUserName = (id) => {
         const user = users.find((u) => u._id === id);
         return user ? user.username : "Unknown";
     };
-
+    //selector for user editing quotes down
     const [selectedUsers, setSelectedUsers] = React.useState([]);
     const toggleUser = (userId) => {
         setSelectedUsers((prev) =>
@@ -20,7 +20,7 @@ const TweetView = ({ tweets, users }) => {
                 : [...prev, userId]
         );
     };
-
+    //selector for feel editing quotes down
     const feels = ["Happy", "Sad", "Funny"];
     const [selectedFeels, setSelectedFeels] = React.useState([]);
     const toggleFeel = (feel) => {
@@ -30,12 +30,12 @@ const TweetView = ({ tweets, users }) => {
                 : [...prev, feel]
         );
     };
-
+    //application filter
     const filteredTweets = tweets.filter(tweet => 
         (selectedUsers.length === 0 || selectedUsers.includes(tweet.owner)) &&
         (selectedFeels.length === 0 || selectedFeels.includes(tweet.feel))
     );
-
+    //returns html of quote selector, as well as output of all selecteable quotes
     return (
         <div id="LRGridViewer">
             <div id="viewerLeft">
@@ -109,7 +109,7 @@ const TweetView = ({ tweets, users }) => {
         </div>
     );
 };
-
+//loads all potential users
 const loadUsers = async () => {
     const response = await fetch('/getUsers');
     const data = await response.json();

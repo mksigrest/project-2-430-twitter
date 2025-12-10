@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const _ = require('underscore');
 
 const setTitle = (title) => _.escape(title).trim();
-
+//creates quote with data author, content, type, feel, poster, and creation date
 const TweetSchema = new mongoose.Schema({
     title: {
         type: String,
@@ -32,7 +32,7 @@ const TweetSchema = new mongoose.Schema({
         default: Date.now,
     },
 });
-
+//sends creation schema to API
 TweetSchema.statics.toAPI = (doc) => ({
     _id: doc._id,
     title: doc.title,

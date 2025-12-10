@@ -2,6 +2,7 @@ const helper = require('./helper.js');
 const React = require('react');
 const { createRoot } = require('react-dom/client');
 
+//handles login for existing inputted usernames
 const handleLogin = (e) => {
     e.preventDefault();
     helper.hideError();
@@ -17,7 +18,7 @@ const handleLogin = (e) => {
     helper.sendPost(e.target.action, { username, pass });
     return false;
 }
-
+//handles signup for new usernames
 const handleSignup = (e) => {
     e.preventDefault();
     helper.hideError();
@@ -39,7 +40,7 @@ const handleSignup = (e) => {
     helper.sendPost(e.target.action, { username, pass, pass2 });
     return false;
 }
-
+//handles html creation and update for login window
 const LoginWindow = (props) => {
     return (
         <form id="loginForm"
@@ -57,7 +58,7 @@ const LoginWindow = (props) => {
         </form>
     );
 };
-
+//handles html creation and update for signup window
 const SignupWindow = (props) => {
     return (
         <form id="signupForm"
@@ -77,7 +78,7 @@ const SignupWindow = (props) => {
         </form>
     );
 };
-
+//runs initilization of const functions
 const init = () => {
     const loginButton = document.getElementById('loginButton');
     const signupButton = document.getElementById('signupButton');

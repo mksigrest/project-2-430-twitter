@@ -1,15 +1,15 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable arrow-body-style */
 const bcrypt = require('bcrypt');
 const Account = require('../models/Account');
-
+//handles login page
 const loginPage = (req, res) => {
   return res.render('login');
 };
+//handles logout function
 const logout = (req, res) => {
   req.session.destroy();
   res.redirect('/');
 };
+//handles login for existing usernames
 const login = (req, res) => {
   const username = `${req.body.username}`;
   const pass = `${req.body.pass}`;
@@ -23,9 +23,10 @@ const login = (req, res) => {
     }
     req.session.account = Account.toAPI(account);
 
-    return res.json({ redirect: '/maker' });
+    return res.status(200).json({ redirect: '/maker' });
   });
 };
+//handles signup for new usernames
 const signup = async (req, res) => {
   const username = `${req.body.username}`;
   const pass = `${req.body.pass}`;
@@ -42,7 +43,7 @@ const signup = async (req, res) => {
     const newAccount = new Account({ username, password: hash });
     await newAccount.save();
     req.session.account = Account.toAPI(newAccount);
-    return res.json({ redirect: '/maker' });
+      return res.status(200).json({ redirect: '/maker' });
   } catch (err) {
     console.log(err);
     if (err.code === 11000) {
@@ -51,6 +52,7 @@ const signup = async (req, res) => {
     return res.status(500).json({ error: 'An error occured!' });
   }
 };
+//handles change password function in maker.jsx
 const changePassword = async (req, res) => {
   const curPass = `${req.body.curPass}`;
   const pass = `${req.body.pass}`;
@@ -83,6 +85,7 @@ const changePassword = async (req, res) => {
     return res.status(500).json({ error: 'Error changing password' });
   }
 };
+//returns account
 const getAccount = (req, res) => {
   return res.json({ account: req.session.account });
 };

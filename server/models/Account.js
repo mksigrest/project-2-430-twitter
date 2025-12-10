@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const saltRounds = 10;
 
 let AccountModel = {};
-
+//sets up peoples accounts, with password (changeable) and creation date
 const AccountSchema = new mongoose.Schema({
   username: {
     type: String,
@@ -27,9 +27,9 @@ AccountSchema.statics.toAPI = (doc) => ({
   username: doc.username,
   _id: doc._id,
 });
-
+//creates password hash
 AccountSchema.statics.generateHash = (password) => bcrypt.hash(password, saltRounds);
-
+//authenticates account data
 AccountSchema.statics.authenticate = async (username, password, callback) => {
   try {
     const doc = await AccountModel.findOne({username}).exec();

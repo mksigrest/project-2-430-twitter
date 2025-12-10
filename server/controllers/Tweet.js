@@ -1,12 +1,8 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable prefer-destructuring */
-/* eslint-disable indent */
-/* eslint-disable arrow-body-style */
 const models = require('../models');
 
 const Tweet = models.Tweet;
 const Account = models.Account;
-
+//makes quote, with specified quote author, content, feel, type, time, and poster
 const makeTweet = async (req, res) => {
     if (!req.body.title || !req.body.content || !req.body.type || !req.body.feel) {
         return res.status(400).json({ error: 'Title, content, type, and feel are all required!' });
@@ -39,7 +35,7 @@ const makeTweet = async (req, res) => {
         return res.status(500).json({ error: 'An error occured making the tweet!' });
     }
 };
-
+//retrieves quotes for maker page
 const getTweets = async (req, res) => {
     try {
         const query = { owner: req.session.account._id };
@@ -51,7 +47,7 @@ const getTweets = async (req, res) => {
         return res.status(500).json({ error: 'Error retrieving tweets!' });
     }
 };
-
+//retrieves public quotes for viewer page
 const viewTweets = async (req, res) => {
     try {
         const docs = await Tweet.find({ type: 'public' })
@@ -63,7 +59,7 @@ const viewTweets = async (req, res) => {
         return res.status(500).json({ error: 'Error retrieving public tweets' });
     }
 };
-
+//updates possible in maker, being type and feel
 const updateTweet = async (req, res) => {
     try {
         const { id, type, feel } = req.body;
@@ -85,7 +81,7 @@ const updateTweet = async (req, res) => {
         return res.status(500).json({ error: "Error tweet update" });
     }
 };
-
+//returns current users
 const getUsers = async (req, res) => {
     try {
         const users = await Account.find({}).select('username').lean();
@@ -96,7 +92,7 @@ const getUsers = async (req, res) => {
         return res.status(500).json({ error: 'Error finding users' });
     }
 };
-
+//returns current quotes stats numbers for personal account
 const getStats = async (req, res) => {
     try {
         const ownerId = req.session.account._id;

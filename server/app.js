@@ -1,8 +1,3 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable arrow-parens */
-/* eslint-disable prefer-destructuring */
-/* eslint-disable indent */
-/* eslint-disable import/newline-after-import */
 require('dotenv').config();
 console.log('Loaded Redis URL:', process.env.REDISCLOUD_URL);
 const path = require('path');

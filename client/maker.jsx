@@ -2,7 +2,7 @@ const helper = require('./helper.js');
 const React = require('react');
 const { useState, useEffect } = React;
 const { createRoot } = require('react-dom/client');
-
+//handles quote creation routing
 const handleTweet = (e, onTweetAdded) => {
     e.preventDefault();
     helper.hideError();
@@ -20,7 +20,7 @@ const handleTweet = (e, onTweetAdded) => {
     helper.sendPost(e.target.action, { title, content, type, feel }, onTweetAdded);
     return false;
 }
-
+//handles updating current number of quotes for display
 const TweetStats = (props) => {
     const [stats, setStats] = useState({ totalTweets: 0 });
 
@@ -36,7 +36,7 @@ const TweetStats = (props) => {
         </div>
     )
 }
-
+//handles output of quotes on personal page, showing information, and allowing the editing of their type and feel
 const TweetList = (props) => {
     const [tweets, setTweets] = useState(props.tweets);
     const [valId, setValId] = useState(null);
@@ -115,7 +115,7 @@ const TweetList = (props) => {
         </div>
     );
 };
-
+//handles the quote creation html
 const TweetForm = (props) => {
     return (
         <form id="tweetForm"
@@ -145,7 +145,7 @@ const TweetForm = (props) => {
         </form>
     );
 };
-
+//handles password changing and account info
 const AccountForm = () => {
     const [account, setAccount] = useState(null);
     const [message, setMessage] = useState('');
@@ -205,7 +205,7 @@ const AccountForm = () => {
             </div></>
     )
 };
-
+//formats all into app, and runs
 const App = () => {
     const [reloadTweets, setReloadTweets] = useState(false);
 
