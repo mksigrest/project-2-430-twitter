@@ -1,8 +1,9 @@
 const knownRoutes = new Set([
-    '/login', '/logout', '/signup', '/maker', '/viewer', '/getTweets', '/getUsers', '/getStats', 'updateTweet', 'changePassword', '/getAccount', '/',]);
+    '/login', '/logout', '/signup', '/maker', '/viewer', '/getTweets', '/getUsers', '/getStats', '/updateTweet', 'changePassword', '/getAccount', '/',]);
 const affectsAuthentication = (req) => knownRoutes.has(req.path);
 
 const requiresLogin = (req, res, next) => {
+    if (!affectsAuthentication(req)) return next();
     if (!req.session.account) {
         return res.redirect('/');
     }
@@ -10,6 +11,7 @@ const requiresLogin = (req, res, next) => {
 }
 
 const requiresLogout = (req, res, next) => {
+    if (!affectsAuthentication(req)) return next();
     if (req.session.account) {
         return res.redirect('/maker');
     }
@@ -17,6 +19,7 @@ const requiresLogout = (req, res, next) => {
 }
 
 const requiresSecure = (req, res, next) => {
+    if (!affectsAuthentication(req)) return next();
     if (req.headers['x-forwarded-proto'] !== 'https') {
         return res.redirect(`https://${req.hostname}${req.url}`);
     }
