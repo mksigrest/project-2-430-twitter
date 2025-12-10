@@ -62,7 +62,7 @@ redisClient.connect().then(() => {
         if (req.originalUrl.startsWith('/api') || needJson) {
             return res.status(404).json({ error: 'Not Found' });
         }
-        return res.status(404).render('404');
+        return res.status(404).render('error');
     });
 
     app.listen(port, (err) => {
