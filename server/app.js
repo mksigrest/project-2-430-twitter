@@ -55,8 +55,11 @@ redisClient.connect().then(() => {
 
     router(app);
 
+    const accHead = req.headers && req.headers.accept ? req.headers.accept : '';
+    const needJson = typeof accHead === 'string' && accHead.indexOf('application/json');
+
     app.use((req, res) => {
-        if (req.originalUrl.startsWith('/api') || req.headers.accept?.includes('application/json')) {
+        if (req.originalUrl.startsWith('/api') || needJson) {
             return res.status(404).json({ error: 'Not Found' });
         }
         return res.status(404).render('404');
